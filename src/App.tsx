@@ -3,28 +3,28 @@ import './App.css';
 import FieldContainer from "./Field/Field.container";
 import {Provider} from 'react-redux';
 import {store} from "./store/store";
-
-const nodeSize = 50;
-
-const fieldSize = {width: 11, height: 5}
-
-const nodes = Array(fieldSize.width * fieldSize.height).fill(null).map((node, index) => ({
-    coordinates: {x: (index % fieldSize.width) * nodeSize, y: Math.floor(index / fieldSize.width) * nodeSize},
-    booster: Math.random() > 0.7
-}));
+import {initializeGame} from "./actions/field.actions";
 
 class App extends Component {
+    componentDidMount(): void {
+        //TODO: initialize from UI and use "connect" for dispatch
+        store.dispatch(initializeGame());
+    }
+
     render() {
+
+
+
         return (
             <Provider store={store}>
-            <div>
-                <header className="App-header">
-                    Soccer game
-                </header>
-                <div className="App">
-                    <FieldContainer/>
+                <div>
+                    <header className="App-header">
+                        Soccer game
+                    </header>
+                    <div className="App">
+                        <FieldContainer/>
+                    </div>
                 </div>
-            </div>
             </Provider>
         );
     }

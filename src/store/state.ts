@@ -1,8 +1,9 @@
-import {IField} from "../types/IField";
-import {ISettings} from "../types/ISettings";
+import {Field} from "../types/field.types";
+import {IGameSettings, IRenderingSettings} from "../types/settings.types";
 
 export interface IState {
-    readonly fieldState: IField;
-    readonly settings: ISettings;
+    readonly fieldState: Field;
+    readonly gameSettings: IGameSettings;
+    readonly renderingSettings: IRenderingSettings;
 }
 

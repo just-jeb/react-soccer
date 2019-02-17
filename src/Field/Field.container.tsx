@@ -2,13 +2,13 @@ import {IState} from "../store/state";
 import {nodeIdsSelector} from "../selectors/field.selectors";
 import {connect} from "react-redux";
 import {FieldComponent} from "./Field.component";
-import {fieldSettingsSelector, nodeSettingsSelector} from "../selectors/settings.selector";
+import {gameSettingsSelector, renderingSettingsSelector} from "../selectors/settings.selector";
 
 const mapStateToProps = (state: IState) => {
     return {
         nodesIds: nodeIdsSelector(state),
-        fieldSize: fieldSettingsSelector(state).size,
-        nodeSize: nodeSettingsSelector(state).size
+        fieldSize: gameSettingsSelector(state).fieldSize,
+        nodeSize: renderingSettingsSelector(state).nodeSize
     }
 };
 

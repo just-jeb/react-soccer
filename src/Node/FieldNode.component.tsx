@@ -1,17 +1,20 @@
 import React from 'react';
 import "./FieldNode.component.css";
-import {INode} from "../types/INode";
+import {INode} from "../types/field.types";
+import {ISize} from "../types/common.types";
 
 export interface IFieldNodeProps {
     node: INode;
-    dotRadius: number
+    nodeSize: ISize,
+    boosterRadius: number
 }
 
 
 export class FieldNodeComponent extends React.PureComponent<IFieldNodeProps> {
     render(){
+        const {node: {coordinates: {x, y}, booster}, nodeSize: {width, height}, boosterRadius} = this.props;
         return (
-            <circle cx={this.props.node.coordinates.x} cy={this.props.node.coordinates.y} r={this.props.dotRadius} fill={this.props.node.booster ? "green" : "grey"}/>
+            <circle cx={x * width} cy={y * height} r={boosterRadius} fill={booster ? "green" : "grey"}/>
         )
     }
 }

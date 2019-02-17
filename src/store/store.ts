@@ -1,7 +1,21 @@
-import {combineReducers, createStore} from "redux";
+import {AnyAction, applyMiddleware, combineReducers, createStore} from "redux";
 import {IState} from "./state";
 import {fieldState} from "../reducers/field.reducer";
-import {settings} from "../reducers/settings.reducer";
+import {gameSettings, renderingSettings} from "../reducers/settings.reducer";
+import thunk, {ThunkDispatch} from "redux-thunk";
+import {composeWithDevTools} from "redux-devtools-extension";
 
+const composeEnhancers = composeWithDevTools({
+ //TODO: Redux devtools options here
+});
 
-export const store = createStore(combineReducers<IState>({fieldState, settings}));
+//TODO: try Redux Observables and compare with Thunks
+export const store = createStore(combineReducers<IState>({
+        fieldState,
+        gameSettings,
+        renderingSettings
+    }),
+    composeEnhancers(
+        applyMiddleware<ThunkDispatch<IState, undefined, AnyAction>, IState>(thunk)
+    )
+);

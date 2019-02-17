@@ -1,12 +1,21 @@
-import {ISettings} from "../types/ISettings";
 import {Reducer} from "redux";
+import {IGameSettings, IRenderingSettings} from "../types/settings.types";
+import {SettingsActions, SettingsActionsTypes} from "../actions/settings.actions";
 
-const defaultSettings: ISettings = {dotRadius: 5, fieldSize: {width: 11, height: 5}, nodeSize: 50};
+const defaultGameSettings: IGameSettings = {fieldSize: {width: 11, height: 5}};
+const defaultRenderingSettings: IRenderingSettings = {nodeSize: {width: 50, height: 50}, boosterRadius: 5};
 
-export const settings: Reducer<ISettings> = (state = defaultSettings, action) => {
+export const gameSettings: Reducer<IGameSettings, SettingsActions> = (state = defaultGameSettings, action) => {
     switch (action.type) {
-        case 'A':
+        case SettingsActionsTypes.SET_GAME_FIELD_SIZE:
+            return {...state, size: action.payload};
+        default:
             return state;
+    }
+};
+
+export const renderingSettings: Reducer<IRenderingSettings> = (state = defaultRenderingSettings, action) => {
+    switch (action.type) {
         default:
             return state;
     }
