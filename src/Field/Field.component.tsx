@@ -2,13 +2,13 @@ import React from 'react';
 import "./Field.component.css";
 import FieldNodeContainer from '../Node/FieldNode.container';
 import {ISize} from "../types/common.types";
+import PathContainer from "../Path/Path.container";
 
 export interface FieldProps {
     nodesIds: string[],
     fieldSize: ISize,
     nodeSize: ISize
 }
-
 
 export class FieldComponent extends React.PureComponent<FieldProps> {
     render() {
@@ -25,7 +25,7 @@ export class FieldComponent extends React.PureComponent<FieldProps> {
                         //TODO: What is the problem here?
                         nodesIds.map(id => <FieldNodeContainer id={id}/>)
                     }
-                    <polyline points={"50 100, 100 100, 150 50"} fill={'none'} stroke={'black'} strokeWidth={3}/>
+                <PathContainer/>
                 </svg>
             </div>
         )
