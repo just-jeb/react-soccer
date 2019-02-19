@@ -1,6 +1,6 @@
 import {IPoint} from "./common.types";
 
-export interface Field {
+export interface IField {
     readonly nodesIds: string[];
     readonly nodes: { [id: string]: INode }
     //Path is an ordered array of node pairs that describes path on the field

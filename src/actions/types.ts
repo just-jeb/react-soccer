@@ -7,4 +7,4 @@ import {Action} from "./utils";
 export type ActionsUnion<A extends ActionCreatorsMapObject> = ReturnType<A[keyof A]>;
 
 //TODO: strengthen type definition
-export type ReactSoccerThunkAction = ThunkAction<any ,IState, any, Action<any>>;
+export type ReactSoccerThunkAction = ThunkAction<any, IState, any, Action<any>>;

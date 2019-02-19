@@ -20,7 +20,8 @@ export class FieldComponent extends React.PureComponent<FieldProps> {
         console.log(nodesIds)
         return (
             <div className={'field'}>
-                <svg width={fieldSize.width * nodeSize.width} height={fieldSize.height * nodeSize.height}>
+                <svg width={(fieldSize.width - 1) * nodeSize.width}
+                     height={(fieldSize.height - 1) * nodeSize.height}>
                     {
                         //TODO: What is the problem here?
                         nodesIds.map(id => <FieldNodeContainer id={id}/>)

@@ -2,7 +2,7 @@ import {Reducer} from "redux";
 import {IGameSettings, IRenderingSettings} from "../types/settings.types";
 import {SettingsActions, SettingsActionsTypes} from "../actions/settings.actions";
 
-const defaultGameSettings: IGameSettings = {fieldSize: {width: 11, height: 5}};
+const defaultGameSettings: IGameSettings = {fieldSize: {width: 15, height: 7}};
 const defaultRenderingSettings: IRenderingSettings = {nodeSize: {width: 50, height: 50}, boosterRadius: 5};
 
 export const gameSettings: Reducer<IGameSettings, SettingsActions> = (state = defaultGameSettings, action) => {
