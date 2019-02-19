@@ -7,54 +7,41 @@ import {createAction} from "./utils";
 import {nodeSelector} from "../selectors/field.selectors";
 import {getNodeId, isEdge, isMiddle} from "../utils/game.utils";
 import {currentPlayerSelector} from "../selectors/game.selectors";
-import {EGameStatus, EPlayers} from "../types/game.types";
+import {EGameStatus, EPlayers, TBoosters} from "../types/game.types";
 
 export const initializeGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
     const {nodeSize: {width: nw, height: nh}} = renderingSettingsSelector(getState());
     initializeCoordinatesTransformer(nw, nh);
     const fieldSize = gameSettingsSelector(getState()).fieldSize;
     const {width, height} = fieldSize;
+
     const nodes: INode[] = Array(width * height).fill(null).map((node, index) => {
         const coordinates = {x: (index % width), y: Math.floor(index / width)};
-        const booster = isEdge(coordinates, fieldSize) || isMiddle(coordinates, fieldSize);
         return {
-            coordinates,
-            booster
+            coordinates
         }
     });
+    const defaultBoosters = nodes.reduce<TBoosters>((boosters, node) => {
+        boosters[getNodeId(node)] = isEdge(node.coordinates, fieldSize) || isMiddle(node.coordinates, fieldSize);
+        return boosters;
+    }, {});
     const centerNodeId = getNodeId(nodes[Math.floor(nodes.length / 2)]);
     dispatch(FieldActions.createNodes(nodes));
-    dispatch(GameActions.setBallNode(centerNodeId));
-    dispatch(GameActions.setCurrentPlayer(EPlayers.PLAYER1));
-    dispatch(GameActions.setGameStatus(EGameStatus.Playing));
-};
-
-export const makeMove: (toNode: string) => ReactSoccerThunkAction =
-    (toNode: string) => (dispatch, getState) => {
-        const node = nodeSelector(getState(), {id: toNode});
-        dispatch(GameActions.setBallNode(toNode));
-        if (!node.booster) {
-            dispatch(finishTurn())
-        }
-    };
-
-export const finishTurn: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
-    const nextPlayer = currentPlayerSelector(getState()) === EPlayers.PLAYER1 ? EPlayers.PLAYER2 : EPlayers.PLAYER1;
-    dispatch(GameActions.setCurrentPlayer(nextPlayer));
+    dispatch(GameActions.startNewGame(centerNodeId, defaultBoosters));
 };
 
 
 export enum EGameActionsTypes {
-    SET_GAME_STATUS = '[game] SET_GAME_STATUS',
-    SET_CURRENT_PLAYER = '[game] SET_CURRENT_PLAYER',
-    SET_BALL_NODE = '[game] SET_BALL_NODE',
+    MAKE_MOVE = '[game] MAKE_MOVE',
+    START_NEW_GAME = '[game] START_NEW_GAME'
 }
 
 
 export const GameActions = {
-    setBallNode: (nodeId: string) => createAction(EGameActionsTypes.SET_BALL_NODE, nodeId),
-    setCurrentPlayer: (player: EPlayers) => createAction(EGameActionsTypes.SET_CURRENT_PLAYER, player),
-    setGameStatus: (status: EGameStatus) => createAction(EGameActionsTypes.SET_GAME_STATUS, status)
+    makeMove: (nodeId: string) => createAction(EGameActionsTypes.MAKE_MOVE, nodeId),
+    startNewGame: (startNodeId: string, defaultBoosters: TBoosters) => createAction(EGameActionsTypes.START_NEW_GAME,
+        {startNodeId, defaultBoosters}
+    )
 };
 
 

@@ -1,4 +1,4 @@
-import {INode} from "./field.types";
+import {IPoint} from "./common.types";
 
 export enum EPlayers {
     PLAYER1 = 'player1',
@@ -15,5 +15,16 @@ export enum EGameStatus {
 export interface IGame {
     readonly ballNode: string,
     readonly currentPlayer: EPlayers,
-    readonly gameStatus: EGameStatus
+    readonly gameStatus: EGameStatus,
+    //Path is an ordered array of node pairs that describes path on the field
+    //For now it would be sufficient to have just array of nodeIds (not pairs) as path is sequential,
+    //but later on we might need this info for drawing certain connections in different colors
+    readonly path: TConnection[];
+    readonly boosters: TBoosters;
 }
+
+
+export type TConnection = [string, string];
+export type TBoosters = { [nodeId: string]: boolean };
+
+export type TConnectionCoords = [IPoint, IPoint];

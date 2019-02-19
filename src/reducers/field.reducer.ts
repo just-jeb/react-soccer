@@ -3,7 +3,7 @@ import {IField, INode} from "../types/field.types";
 import {FieldActions, FieldActionsTypes} from "../actions/field.actions";
 import {getNodeId} from "../utils/game.utils";
 
-const defaultFieldState: IField = {nodesIds: [], nodes: {}, path: []};
+const defaultFieldState: IField = {nodesIds: [], nodes: {}};
 
 export const fieldState: Reducer<IField, FieldActions> = (state = defaultFieldState, action: FieldActions) => {
     switch (action.type) {

@@ -16,15 +16,15 @@ export class FieldComponent extends React.PureComponent<FieldProps> {
     }
 
     buildSvg() {
-        const {fieldSize, nodeSize, nodesIds} = this.props;
-        console.log(nodesIds)
+        const {fieldSize, nodeSize: {width, height}, nodesIds} = this.props;
+        const fieldWidth = (fieldSize.width - 1) * width,
+            fieldHeight =(fieldSize.height - 1) * height;
+
         return (
             <div className={'field'}>
-                <svg width={(fieldSize.width - 1) * nodeSize.width}
-                     height={(fieldSize.height - 1) * nodeSize.height}>
+                <svg width={fieldWidth} height={fieldHeight} viewBox={`${width/2} ${height/2} ${fieldWidth} ${fieldHeight}`}>
                     {
-                        //TODO: What is the problem here?
-                        nodesIds.map(id => <FieldNodeContainer id={id}/>)
+                        nodesIds.map(id => <FieldNodeContainer key={id} id={id}/>)
                     }
                 <PathContainer/>
                 </svg>
@@ -32,3 +32,4 @@ export class FieldComponent extends React.PureComponent<FieldProps> {
         )
     }
 }
+

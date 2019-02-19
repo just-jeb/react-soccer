@@ -3,15 +3,23 @@ import {IState} from "../store/state";
 import {renderingSettingsSelector} from "../selectors/settings.selector";
 import {connect} from "react-redux";
 import {FieldNodeComponent} from "./FieldNode.component";
-import {ballNodeSelector} from "../selectors/game.selectors";
+import {ballNodeSelector, boosterSelector} from "../selectors/game.selectors";
+import {ThunkDispatch} from "redux-thunk";
+import {GameActions} from "../actions/game.actions";
 
 const mapStateToProps = (state: IState, props: { id: string }) => ({
     node: nodeSelector(state, props),
     isBallNode: ballNodeSelector(state) === props.id,
     nodeSize: renderingSettingsSelector(state).nodeSize,
     boosterRadius: renderingSettingsSelector(state).boosterRadius,
+    booster: boosterSelector(state, props)
+});
+
+const mapDispatchToProps = (dispatch: ThunkDispatch<IState, any, GameActions>, props: { id: string }) => ({
+    onClick: () => dispatch(GameActions.makeMove(props.id))
 });
 
 export default connect(
     mapStateToProps,
+    mapDispatchToProps
 )(FieldNodeComponent)
