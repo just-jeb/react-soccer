@@ -1,27 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import FieldContainer from "./Field/Field.container";
 import {Provider} from 'react-redux';
 import {store} from "./store/store";
-import {initializeGame} from "./store/actions/game.actions";
-import {gameStatusSelector} from "./store/selectors/game.selectors";
-import {EGameStatus} from "./types/game.types";
+import GameContainer from "./Game/Game.container";
 
 class App extends Component {
-    componentDidMount(): void {
-        //TODO: initialize from UI and use "connect" for dispatch
-        store.dispatch(initializeGame());
-        this.forceUpdate();
-    }
 
-    getGameScreen = () => {
-        return gameStatusSelector(store.getState()) === EGameStatus.NotStarted ? <div/> : <FieldContainer/>;
-    };
 
     render() {
-
-
-
         return (
             <Provider store={store}>
                 <div>
@@ -29,7 +15,7 @@ class App extends Component {
                         Soccer game
                     </header>
                     <div className="App">
-                        {this.getGameScreen()}
+                        <GameContainer/>
                     </div>
                 </div>
             </Provider>
