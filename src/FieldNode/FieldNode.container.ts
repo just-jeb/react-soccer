@@ -8,7 +8,6 @@ import {GameActions} from "../store/actions/game.actions";
 
 const mapStateToProps = (state: IState, props: { id: string }) => ({
     node: nodeSelector(state, props),
-    isBallNode: ballNodeSelector(state) === props.id,
     booster: boosterSelector(state, props),
 });
 

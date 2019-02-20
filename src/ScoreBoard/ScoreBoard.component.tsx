@@ -16,7 +16,6 @@ export const ScoreBoardComponent = React.memo<ScoreBoardProps>(({currentPlayer})
         [styles.player2]: true,
         [styles.currentPlayer]: currentPlayer === EPlayers.PLAYER2
     });
-    console.log(styles);
     return (
         <span>
             <h2 className={player1Classes}>Player1</h2>  :   <h2 className={player2Classes}>Player2</h2>

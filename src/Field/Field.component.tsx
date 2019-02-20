@@ -4,6 +4,7 @@ import FieldNodeContainer from '../FieldNode/FieldNode.container';
 import {IDimensions} from "../types/common.types";
 import PathContainer from "../Path/Path.container";
 import NextMovesGrid from '../NextMovesGrid/NextMovesGrid.container';
+import BallContainer from '../Ball/Ball.container';
 
 export interface FieldProps {
     nodesIds: string[],
@@ -28,6 +29,7 @@ export class FieldComponent extends React.PureComponent<FieldProps> {
                         nodesIds.map(id => <FieldNodeContainer key={id} id={id}/>)
                     }
                     <NextMovesGrid/>
+                    <BallContainer/>
                 </svg>
             </div>
         )

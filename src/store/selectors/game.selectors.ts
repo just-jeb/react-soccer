@@ -10,6 +10,11 @@ import {nodesConnected} from "../../utils/game.utils";
 export const gameStateSelector = (state: IState) => state.gameState;
 export const gameStatusSelector = (state: IState) => gameStateSelector(state).gameStatus;
 export const ballNodeSelector = (state: IState) => gameStateSelector(state).ballNode;
+export const ballPositionSelector = createSelector(
+    ballNodeSelector,
+    nodesSelector,
+    (ballNodeId, nodes) => nodes[ballNodeId].coordinates
+);
 export const currentPlayerSelector = (state: IState) => gameStateSelector(state).currentPlayer;
 export const boostersSelector = (state: IState) => gameStateSelector(state).boosters;
 
