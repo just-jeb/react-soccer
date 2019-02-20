@@ -1,4 +1,4 @@
-import {INode} from "../types/field.types";
+import {INode} from "../../types/field.types";
 import {createAction} from "./utils";
 import {ActionsUnion} from "./types";
 

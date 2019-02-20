@@ -3,8 +3,8 @@ import './App.css';
 import FieldContainer from "./Field/Field.container";
 import {Provider} from 'react-redux';
 import {store} from "./store/store";
-import {initializeGame} from "./actions/game.actions";
-import {gameStatusSelector} from "./selectors/game.selectors";
+import {initializeGame} from "./store/actions/game.actions";
+import {gameStatusSelector} from "./store/selectors/game.selectors";
 import {EGameStatus} from "./types/game.types";
 
 class App extends Component {

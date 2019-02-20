@@ -1,10 +1,11 @@
 import {ActionsUnion, ReactSoccerThunkAction} from "./types";
 import {gameSettingsSelector} from "../selectors/settings.selector";
-import {INode} from "../types/field.types";
+import {INode} from "../../types/field.types";
 import {FieldActions} from "./field.actions";
 import {createAction} from "./utils";
-import {getNodeId, isEdge, isMiddle} from "../utils/game.utils";
-import {TBoosters} from "../types/game.types";
+import {isEdge, isMiddle} from "../../utils/field.utils";
+import {TBoosters} from "../../types/game.types";
+import {stringifyPoint} from "../../utils/common.utils";
 
 export const initializeGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
     const fieldSize = gameSettingsSelector(getState()).fieldSize;
@@ -12,15 +13,17 @@ export const initializeGame: () => ReactSoccerThunkAction = () => (dispatch, get
 
     const nodes: INode[] = Array(width * height).fill(null).map((node, index) => {
         const coordinates = {x: (index % width), y: Math.floor(index / width)};
+        const id = stringifyPoint(coordinates);
         return {
+            id,
             coordinates
         }
     });
     const defaultBoosters = nodes.reduce<TBoosters>((boosters, node) => {
-        boosters[getNodeId(node)] = isEdge(node.coordinates, fieldSize) || isMiddle(node.coordinates, fieldSize);
+        boosters[stringifyPoint(node.coordinates)] = isEdge(node.coordinates, fieldSize) || isMiddle(node.coordinates, fieldSize);
         return boosters;
     }, {});
-    const centerNodeId = getNodeId(nodes[Math.floor(nodes.length / 2)]);
+    const centerNodeId = stringifyPoint(nodes[Math.floor(nodes.length / 2)].coordinates);
     dispatch(FieldActions.createNodes(nodes));
     dispatch(GameActions.startNewGame(centerNodeId, defaultBoosters));
 };

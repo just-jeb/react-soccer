@@ -6,7 +6,6 @@ export interface IFieldNodeProps {
     node: INode;
     isBallNode: boolean,
     booster: boolean,
-    onClick: () => void
 }
 
 
@@ -40,10 +39,7 @@ export class FieldNodeComponent extends React.PureComponent<IFieldNodeProps> {
         const color = this.getNodeColor();
         const radius = this.getNodeRadius();
         return (
-            <g transform={`translate(${x}, ${y})`} onClick={this.props.onClick}>
-                <circle cx={0.5} cy={0.5} r={radius} fill={color}/>
-                <rect cx={0} cy={0} width={1} height={1} fillOpacity={0} strokeOpacity={0}/>
-            </g>
+                <circle cx={x} cy={y} r={radius} fill={color}/>
         )
     }
 }

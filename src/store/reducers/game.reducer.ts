@@ -1,5 +1,5 @@
 import {Reducer} from "redux";
-import {EGameStatus, EPlayers, IGame, TConnection} from "../types/game.types";
+import {EGameStatus, EPlayers, IGame, TConnection} from "../../types/game.types";
 import {EGameActionsTypes, GameActions} from "../actions/game.actions";
 
 const defaultGameState: IGame = {

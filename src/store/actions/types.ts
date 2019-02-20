@@ -1,6 +1,6 @@
 import {ActionCreatorsMapObject} from "redux";
 import {ThunkAction} from "redux-thunk";
-import {IState} from "../store/state";
+import {IState} from "../state";
 import {Action} from "./utils";
 
 //Return types of our action creators

@@ -1,4 +1,4 @@
-import {ISize} from "../types/common.types";
+import {IDimensions} from "../../types/common.types";
 import {createAction} from "./utils";
 import {ActionsUnion} from "./types";
 
@@ -8,7 +8,7 @@ export enum SettingsActionsTypes {
 
 
 export const SettingsActions = {
-    setGameFieldSize: (size: ISize) => createAction(SettingsActionsTypes.SET_GAME_FIELD_SIZE, size)
+    setGameFieldSize: (size: IDimensions) => createAction(SettingsActionsTypes.SET_GAME_FIELD_SIZE, size)
 };
 
 

@@ -7,5 +7,6 @@ export interface IField {
 
 
 export interface INode {
+    id: string;
     coordinates: IPoint;
 }
