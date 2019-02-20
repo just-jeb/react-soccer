@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Field.component.css";
+import styles from "./Field.module.scss";
 import FieldNodeContainer from '../Node/FieldNode.container';
 import {ISize} from "../types/common.types";
 import PathContainer from "../Path/Path.container";
@@ -16,17 +16,15 @@ export class FieldComponent extends React.PureComponent<FieldProps> {
     }
 
     buildSvg() {
-        const {fieldSize, nodeSize: {width, height}, nodesIds} = this.props;
-        const fieldWidth = (fieldSize.width - 1) * width,
-            fieldHeight =(fieldSize.height - 1) * height;
-
+        const {fieldSize, nodesIds} = this.props;
+        //TODO: move SVG width to CSS
         return (
-            <div className={'field'}>
-                <svg width={fieldWidth} height={fieldHeight} viewBox={`${width/2} ${height/2} ${fieldWidth} ${fieldHeight}`}>
-                    {
-                        nodesIds.map(id => <FieldNodeContainer key={id} id={id}/>)
-                    }
-                <PathContainer/>
+            <div className={styles.field}>
+                <svg width={700}
+                     viewBox={`0.5 0.5 ${fieldSize.width} ${fieldSize.height}`}
+                     preserveAspectRatio={'xMidYMid meet'}>
+                    <PathContainer/>
+                    {nodesIds.map(id => <FieldNodeContainer key={id} id={id}/>)}
                 </svg>
             </div>
         )

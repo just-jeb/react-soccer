@@ -1,17 +1,12 @@
 import {ActionsUnion, ReactSoccerThunkAction} from "./types";
-import {gameSettingsSelector, renderingSettingsSelector} from "../selectors/settings.selector";
-import {initializeCoordinatesTransformer} from "../utils/rendering.utils";
+import {gameSettingsSelector} from "../selectors/settings.selector";
 import {INode} from "../types/field.types";
 import {FieldActions} from "./field.actions";
 import {createAction} from "./utils";
-import {nodeSelector} from "../selectors/field.selectors";
 import {getNodeId, isEdge, isMiddle} from "../utils/game.utils";
-import {currentPlayerSelector} from "../selectors/game.selectors";
-import {EGameStatus, EPlayers, TBoosters} from "../types/game.types";
+import {TBoosters} from "../types/game.types";
 
 export const initializeGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
-    const {nodeSize: {width: nw, height: nh}} = renderingSettingsSelector(getState());
-    initializeCoordinatesTransformer(nw, nh);
     const fieldSize = gameSettingsSelector(getState()).fieldSize;
     const {width, height} = fieldSize;
 
