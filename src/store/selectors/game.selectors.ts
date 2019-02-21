@@ -1,6 +1,6 @@
 import {IState} from "../state";
 import {createSelector} from "reselect";
-import {TConnectionCoords} from "../../types/game.types";
+import {EPlayers, TConnectionCoords} from "../../types/game.types";
 import {nodesSelector} from "./field.selectors";
 import {gameSettingsSelector} from "./settings.selector";
 import {getNeighbors, isEdge} from "../../utils/field.utils";
@@ -8,6 +8,7 @@ import {stringifyPoint} from "../../utils/common.utils";
 import {nodesConnected} from "../../utils/game.utils";
 
 export const gameStateSelector = (state: IState) => state.gameState;
+export const gatesSelector = (state: IState) => gameStateSelector(state).gates;
 export const gameStatusSelector = (state: IState) => gameStateSelector(state).gameStatus;
 export const ballNodeSelector = (state: IState) => gameStateSelector(state).ballNode;
 export const ballPositionSelector = createSelector(
@@ -21,6 +22,12 @@ export const boostersSelector = (state: IState) => gameStateSelector(state).boos
 export const boosterSelector = (state: IState, props: { id: string }) => boostersSelector(state)[props.id];
 
 export const pathSelector = (state: IState) => gameStateSelector(state).path;
+
+export const gateNodesSelector = createSelector(
+    gatesSelector,
+    nodesSelector,
+    (gates, nodes) => (player: EPlayers) => gates[player].nodes.map(id => nodes[id])
+);
 
 //We use createSelector here because there is a data transformation that we want to memoize
 

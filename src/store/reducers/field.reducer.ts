@@ -1,19 +1,16 @@
 import {Reducer} from "redux";
-import {IField, INode} from "../../types/field.types";
+import {IField} from "../../types/field.types";
 import {FieldActions, FieldActionsTypes} from "../actions/field.actions";
+import {reduceToDictionary} from "../../utils/common.utils";
 
-const defaultFieldState: IField = {nodesIds: [], nodes: {}};
+const defaultFieldState: IField = {nodes: {}};
 
+//TODO: consider uniting field and game reducers
 export const fieldState: Reducer<IField, FieldActions> = (state = defaultFieldState, action: FieldActions) => {
     switch (action.type) {
         case FieldActionsTypes.CREATE_NODES:
             const {payload: nodes} = action;
-            const newNodes = nodes.reduce((field: Pick<IField, 'nodesIds' | 'nodes'>, node: INode) => {
-                field.nodesIds.push(node.id);
-                field.nodes[node.id] = node;
-                return field;
-            }, {nodes: {}, nodesIds: []});
-            return {...state, ...newNodes};
+            return {...state, nodes: reduceToDictionary(nodes, 'id')};
         default:
             return state;
     }

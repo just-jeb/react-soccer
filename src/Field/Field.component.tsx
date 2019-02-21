@@ -5,6 +5,8 @@ import {IDimensions} from "../types/common.types";
 import PathContainer from "../Path/Path.container";
 import NextMovesGrid from '../NextMovesGrid/NextMovesGrid.container';
 import BallContainer from '../Ball/Ball.container';
+import {EPlayers} from "../types/game.types";
+import GateContainer from '../Gate/Gate.container';
 
 export interface FieldProps {
     nodesIds: string[],
@@ -27,6 +29,12 @@ export class FieldComponent extends React.PureComponent<FieldProps> {
                     <PathContainer/>
                     {
                         nodesIds.map(id => <FieldNodeContainer key={id} id={id}/>)
+                    }
+                    {
+                        <GateContainer player={EPlayers.PLAYER1}/>
+                    }
+                    {
+                        <GateContainer player={EPlayers.PLAYER2}/>
                     }
                     <NextMovesGrid/>
                     <BallContainer/>

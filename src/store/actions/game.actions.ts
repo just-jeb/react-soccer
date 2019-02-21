@@ -4,14 +4,13 @@ import {INode} from "../../types/field.types";
 import {FieldActions} from "./field.actions";
 import {createAction} from "./utils";
 import {isEdge, isMiddle} from "../../utils/field.utils";
-import {TBoosters} from "../../types/game.types";
+import {EPlayers, IGate, TBoosters} from "../../types/game.types";
 import {stringifyPoint} from "../../utils/common.utils";
+import {IDimensions} from "../../types/common.types";
 
-export const initializeGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
-    const fieldSize = gameSettingsSelector(getState()).fieldSize;
-    const {width, height} = fieldSize;
 
-    const nodes: INode[] = Array(width * height).fill(null).map((node, index) => {
+const createNodes = ({width, height}: IDimensions): INode[] => {
+    return Array(width * height).fill(null).map((node, index) => {
         const coordinates = {x: (index % width), y: Math.floor(index / width)};
         const id = stringifyPoint(coordinates);
         return {
@@ -19,13 +18,43 @@ export const initializeGame: () => ReactSoccerThunkAction = () => (dispatch, get
             coordinates
         }
     });
-    const defaultBoosters = nodes.reduce<TBoosters>((boosters, node) => {
-        boosters[stringifyPoint(node.coordinates)] = isEdge(node.coordinates, fieldSize) || isMiddle(node.coordinates, fieldSize);
-        return boosters;
+};
+
+
+const createGates = ({width, height}: IDimensions, nodes: INode[]): IGate[] => {
+    const midY = Math.floor(height / 2);
+    const gatesYCoord = [midY - 1, midY, midY + 1];
+    const mapGatesYCoordsToNodes = (transformFunction: (y: number) => number) =>
+        gatesYCoord.map(transformFunction).map(i => nodes[i].id);
+
+    return [
+        {
+            owner: EPlayers.PLAYER1,
+            nodes: mapGatesYCoordsToNodes(y => y * width)
+        },
+        {
+            owner: EPlayers.PLAYER2,
+            nodes: mapGatesYCoordsToNodes(y => (y + 1) * width - 1)
+        }
+    ];
+};
+
+const identifyDefaultBoosters = (fieldSize: IDimensions, nodes: INode[], gates: IGate[]) => {
+    return nodes.reduce<TBoosters>((boosters, node) => {
+        const isBooster = !gates.some(g => g.nodes.includes(node.id)) &&
+            (isEdge(node.coordinates, fieldSize) || isMiddle(node.coordinates, fieldSize));
+        return {...boosters, [node.id]: isBooster};
     }, {});
-    const centerNodeId = stringifyPoint(nodes[Math.floor(nodes.length / 2)].coordinates);
+};
+
+export const initializeGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
+    const fieldSize = gameSettingsSelector(getState()).fieldSize;
+    const nodes = createNodes(fieldSize);
+    const gates = createGates(fieldSize, nodes);
+    const defaultBoosters = identifyDefaultBoosters(fieldSize, nodes, gates);
+    const centerNodeId = nodes[Math.floor(nodes.length / 2)].id;
     dispatch(FieldActions.createNodes(nodes));
-    dispatch(GameActions.startNewGame(centerNodeId, defaultBoosters));
+    dispatch(GameActions.startNewGame(centerNodeId, defaultBoosters, gates));
 };
 
 
@@ -37,9 +66,8 @@ export enum EGameActionsTypes {
 
 export const GameActions = {
     makeMove: (nodeId: string) => createAction(EGameActionsTypes.MAKE_MOVE, nodeId),
-    startNewGame: (startNodeId: string, defaultBoosters: TBoosters) => createAction(EGameActionsTypes.START_NEW_GAME,
-        {startNodeId, defaultBoosters}
-    )
+    startNewGame: (startNodeId: string, defaultBoosters: TBoosters, gates: IGate[]) =>
+        createAction(EGameActionsTypes.START_NEW_GAME,{startNodeId, defaultBoosters, gates})
 };
 
 

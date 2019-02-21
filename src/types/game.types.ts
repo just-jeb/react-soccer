@@ -21,10 +21,17 @@ export interface IGame {
     //but later on we might need this info for drawing certain connections in different colors
     readonly path: TConnection[];
     readonly boosters: TBoosters;
+    readonly gates: TGates;
 }
 
+export interface IGate {
+    readonly nodes: string[];
+    readonly owner: EPlayers;
+}
+
+export type TGates = {readonly [player in EPlayers]: IGate};
 
 export type TConnection = [string, string];
-export type TBoosters = { [nodeId: string]: boolean };
+export type TBoosters = { readonly [nodeId: string]: boolean };
 
 export type TConnectionCoords = [IPoint, IPoint];
