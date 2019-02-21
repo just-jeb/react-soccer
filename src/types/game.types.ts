@@ -22,6 +22,7 @@ export interface IGame {
     readonly path: TConnection[];
     readonly boosters: TBoosters;
     readonly gates: TGates;
+    readonly winner?: EPlayers;
 }
 
 export interface IGate {

@@ -42,7 +42,7 @@ const createGates = ({width, height}: IDimensions, nodes: INode[]): IGate[] => {
 const identifyDefaultBoosters = (fieldSize: IDimensions, nodes: INode[], gates: IGate[]) => {
     return nodes.reduce<TBoosters>((boosters, node) => {
         const isBooster = !gates.some(g => g.nodes.includes(node.id)) &&
-            (isEdge(node.coordinates, fieldSize) || isMiddle(node.coordinates, fieldSize));
+            (isEdge(fieldSize)(node.coordinates) || isMiddle(fieldSize)(node.coordinates));
         return {...boosters, [node.id]: isBooster};
     }, {});
 };

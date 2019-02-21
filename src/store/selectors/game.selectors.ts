@@ -3,8 +3,7 @@ import {createSelector} from "reselect";
 import {EPlayers, TConnectionCoords} from "../../types/game.types";
 import {nodesSelector} from "./field.selectors";
 import {gameSettingsSelector} from "./settings.selector";
-import {getNeighbors, isEdge} from "../../utils/field.utils";
-import {stringifyPoint} from "../../utils/common.utils";
+import {getNeighbors, isEdge, isMiddle} from "../../utils/field.utils";
 import {nodesConnected} from "../../utils/game.utils";
 
 export const gameStateSelector = (state: IState) => state.gameState;
@@ -47,12 +46,19 @@ export const possibleMovesSelector = createSelector(
     pathSelector,
     ({fieldSize}, ballNodeId, nodes, path) => {
         const ballNode = nodes[ballNodeId];
-        const possibleMoves = getNeighbors(ballNode.coordinates, fieldSize)
-            .map(stringifyPoint)
-            .map(id => nodes[id])
+        const neighbors = getNeighbors(ballNode.coordinates, fieldSize);
+
+        let possibleMoves = Object.values(nodes)
+            .filter(({coordinates: {x, y}}) =>
+                neighbors.some(({x: nx, y: ny}) => x === nx && y === ny))
             .filter(node => !nodesConnected(node, ballNode, path));
 
-        return !isEdge(ballNode.coordinates, fieldSize) ? possibleMoves :
-            possibleMoves.filter(node => !isEdge(node.coordinates, fieldSize))
+        const mutualExclusionPredicates = [isEdge(fieldSize), isMiddle(fieldSize)];
+        for (const predicate of mutualExclusionPredicates) {
+            if (predicate(ballNode.coordinates)) {
+                possibleMoves = possibleMoves.filter(({coordinates}) => !predicate(coordinates))
+            }
+        }
+        return possibleMoves;
     }
 );
