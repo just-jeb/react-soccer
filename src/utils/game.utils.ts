@@ -1,4 +1,4 @@
-import {EGameStatus, EPlayers, IGame, TConnection} from "../types/game.types";
+import {EGameStatus, IGame, TConnection} from "../types/game.types";
 import {INode} from "../types/field.types";
 
 export const nodesConnected = (node1: INode, node2: INode, path: TConnection[]) => {
@@ -7,9 +7,11 @@ export const nodesConnected = (node1: INode, node2: INode, path: TConnection[]) 
 };
 
 //TODO: use type of makeMove action payload instead of newBallNode and string
-export const determineNextPlayer = ({boosters, currentPlayer}: IGame, newBallNode: string): EPlayers => {
+export const determineNextPlayer = ({boosters, currentPlayer, players}: IGame, newBallNode: string): string => {
     if (!boosters[newBallNode]) {
-        return currentPlayer === EPlayers.PLAYER1 ? EPlayers.PLAYER2 : EPlayers.PLAYER1;
+        const i = players.findIndex(p => p.id === currentPlayer);
+        const nextIndex = (i + 1) % players.length;
+        return players[nextIndex].id;
     } else {
         return currentPlayer;
     }

@@ -5,12 +5,14 @@ import {IDimensions} from "../types/common.types";
 import PathContainer from "../Path/Path.container";
 import NextMovesGrid from '../NextMovesGrid/NextMovesGrid.container';
 import BallContainer from '../Ball/Ball.container';
-import {EPlayers} from "../types/game.types";
+import {EGameStatus, IPlayer} from "../types/game.types";
 import GateContainer from '../Gate/Gate.container';
 
 export interface FieldProps {
     nodesIds: string[],
     fieldSize: IDimensions,
+    gameStatus: EGameStatus,
+    players: IPlayer[]
 }
 
 const FIELD_BORDER_COLOR = 'coral';
@@ -20,8 +22,13 @@ export class FieldComponent extends React.PureComponent<FieldProps> {
         return this.buildSvg();
     }
 
+    renderFieldNode = (id: string) => <FieldNodeContainer key={id} id={id}/>
+
+    //TODO: consider passing player id and not the whole player
+    renderGate = (player: IPlayer) => <GateContainer key={player.id} player={player}/>
+
     buildSvg() {
-        const {fieldSize: {width, height}, nodesIds} = this.props;
+        const {fieldSize: {width, height}, nodesIds, gameStatus, players} = this.props;
         const middle = Math.floor(width / 2);
         //TODO: move SVG width and preserveAspectRation to CSS
         return (
@@ -34,16 +41,9 @@ export class FieldComponent extends React.PureComponent<FieldProps> {
                         <line x1={middle} y1={0} x2={middle} y2={height - 1} strokeWidth={0.05}/>
                     </g>
                     <PathContainer/>
-                    {
-                        nodesIds.map(id => <FieldNodeContainer key={id} id={id}/>)
-                    }
-                    {
-                        <GateContainer player={EPlayers.PLAYER1}/>
-                    }
-                    {
-                        <GateContainer player={EPlayers.PLAYER2}/>
-                    }
-                    <NextMovesGrid/>
+                    {nodesIds.map(this.renderFieldNode)}
+                    {players.map(this.renderGate)}
+                    {gameStatus === EGameStatus.Playing && <NextMovesGrid/>}
                     <BallContainer/>
                 </svg>
             </div>

@@ -4,7 +4,7 @@ import {INode} from "../../types/field.types";
 import {FieldActions} from "./field.actions";
 import {createAction} from "./utils";
 import {isEdge, isMiddle} from "../../utils/field.utils";
-import {EPlayers, IGate, TBoosters} from "../../types/game.types";
+import {IGate, IPlayer, TBoosters} from "../../types/game.types";
 import {stringifyPoint} from "../../utils/common.utils";
 import {IDimensions} from "../../types/common.types";
 
@@ -21,7 +21,7 @@ const createNodes = ({width, height}: IDimensions): INode[] => {
 };
 
 
-const createGates = ({width, height}: IDimensions, nodes: INode[]): IGate[] => {
+const createGates = ({width, height}: IDimensions, nodes: INode[], [p1,p2]: IPlayer[]): IGate[] => {
     const midY = Math.floor(height / 2);
     const gatesYCoord = [midY - 1, midY, midY + 1];
     const mapGatesYCoordsToNodes = (transformFunction: (y: number) => number) =>
@@ -29,11 +29,11 @@ const createGates = ({width, height}: IDimensions, nodes: INode[]): IGate[] => {
 
     return [
         {
-            owner: EPlayers.PLAYER1,
+            owner: p1.id,
             nodes: mapGatesYCoordsToNodes(y => y * width)
         },
         {
-            owner: EPlayers.PLAYER2,
+            owner: p2.id,
             nodes: mapGatesYCoordsToNodes(y => (y + 1) * width - 1)
         }
     ];
@@ -50,11 +50,12 @@ const identifyDefaultBoosters = (fieldSize: IDimensions, nodes: INode[], gates: 
 export const initializeGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
     const fieldSize = gameSettingsSelector(getState()).fieldSize;
     const nodes = createNodes(fieldSize);
-    const gates = createGates(fieldSize, nodes);
+    const players: IPlayer[] = [{id: '1', name: 'Jenia', color: 'purple'}, {id: '2', name: 'Eyal', color: 'orange'}];
+    const gates = createGates(fieldSize, nodes, players);
     const defaultBoosters = identifyDefaultBoosters(fieldSize, nodes, gates);
     const centerNodeId = nodes[Math.floor(nodes.length / 2)].id;
     dispatch(FieldActions.createNodes(nodes));
-    dispatch(GameActions.startNewGame(centerNodeId, defaultBoosters, gates));
+    dispatch(GameActions.startNewGame(centerNodeId, defaultBoosters, gates, players));
 };
 
 
@@ -66,8 +67,8 @@ export enum EGameActionsTypes {
 
 export const GameActions = {
     makeMove: (nodeId: string) => createAction(EGameActionsTypes.MAKE_MOVE, nodeId),
-    startNewGame: (startNodeId: string, defaultBoosters: TBoosters, gates: IGate[]) =>
-        createAction(EGameActionsTypes.START_NEW_GAME,{startNodeId, defaultBoosters, gates})
+    startNewGame: (startNodeId: string, defaultBoosters: TBoosters, gates: IGate[], players: IPlayer[]) =>
+        createAction(EGameActionsTypes.START_NEW_GAME,{startNodeId, defaultBoosters, gates, players})
 };
 
 

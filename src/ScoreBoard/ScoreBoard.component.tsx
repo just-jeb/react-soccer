@@ -1,24 +1,19 @@
 import React from 'react';
+import {IPlayer} from "../types/game.types";
 import styles from './ScoreBoard.module.scss';
-import classNames from 'classnames';
-import {EPlayers} from "../types/game.types";
 
 interface ScoreBoardProps {
-    currentPlayer: EPlayers
+    currentPlayer: string
+    players: IPlayer[];
 }
 
-export const ScoreBoardComponent = React.memo<ScoreBoardProps>(({currentPlayer}) => {
-    const player1Classes = classNames({
-        [styles.player1]: true,
-        [styles.currentPlayer]: currentPlayer === EPlayers.PLAYER1
-    });
-    const player2Classes = classNames({
-        [styles.player2]: true,
-        [styles.currentPlayer]: currentPlayer === EPlayers.PLAYER2
-    });
+export const ScoreBoardComponent = React.memo<ScoreBoardProps>(({currentPlayer, players}) => {
     return (
         <span>
-            <h2 className={player1Classes}>Player1</h2>  :   <h2 className={player2Classes}>Player2</h2>
+            {
+                players.map(({color, id, name}) =>
+                    <h2 style={{color}} key={id} className={id === currentPlayer ? styles.currentPlayer : ''}>{name}</h2>)
+            }
         </span>
     );
 });

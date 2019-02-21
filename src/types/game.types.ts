@@ -1,10 +1,5 @@
 import {IPoint} from "./common.types";
 
-export enum EPlayers {
-    PLAYER1 = 'player1',
-    PLAYER2 = 'player2'
-}
-
 export enum EGameStatus {
     NotStarted,
     Playing,
@@ -12,9 +7,18 @@ export enum EGameStatus {
     EndTie
 }
 
+export interface IPlayer {
+    id: string;
+    color: string;
+    name: string;
+}
+
+export type TPlayers = {readonly [id: string]: IPlayer};
+
 export interface IGame {
+    readonly players: IPlayer[]
     readonly ballNode: string,
-    readonly currentPlayer: EPlayers,
+    readonly currentPlayer: string,
     readonly gameStatus: EGameStatus,
     //Path is an ordered array of node pairs that describes path on the field
     //For now it would be sufficient to have just array of nodeIds (not pairs) as path is sequential,
@@ -22,15 +26,15 @@ export interface IGame {
     readonly path: TConnection[];
     readonly boosters: TBoosters;
     readonly gates: TGates;
-    readonly winner?: EPlayers;
+    readonly winner?: string;
 }
 
 export interface IGate {
     readonly nodes: string[];
-    readonly owner: EPlayers;
+    readonly owner: string;
 }
 
-export type TGates = {readonly [player in EPlayers]: IGate};
+export type TGates = {readonly [player: string]: IGate};
 
 export type TConnection = [string, string];
 export type TBoosters = { readonly [nodeId: string]: boolean };
