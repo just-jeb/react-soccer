@@ -5,7 +5,6 @@ import {NextMovesGridComponent} from "./NextMovesGrid.component";
 import {ThunkDispatch} from "redux-thunk";
 import {GameActions} from "../store/actions/game.actions";
 
-
 const mapStateToProps = (state: IState) => ({
     nextMoves: possibleMovesSelector(state)
 });
