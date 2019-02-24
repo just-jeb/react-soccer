@@ -1,0 +1,29 @@
+.mainMenu {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: cornflowerblue;
+  padding: 4em;
+  border-radius: 0.5em;
+}
+
+.menuItem {
+  &:not(:last-child) {
+    margin-bottom: 2em;
+  }
+}
+
+.menuButton {
+  color: moccasin;
+  font-size: 2rem;
+  padding: 1em;
+  background-color: lightsalmon;
+  border-color: lightsalmon;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  &:hover {
+    background-color: darksalmon;
+    border-color: darksalmon;
+    transform: scale(1.2);
+  }
+}
