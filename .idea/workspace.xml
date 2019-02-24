@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c56a0048-c219-43bf-a70b-66c8c55435d9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Field/Field.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Field.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Field.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Field.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gate/Gate.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gate/Gate.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gate/Gate.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gate/Gate.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScoreBoard/ScoreBoard.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScoreBoard/ScoreBoard.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScoreBoard/ScoreBoard.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScoreBoard/ScoreBoard.container.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.nvmrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallaby.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/game.actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/game.actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/game.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/game.reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/game.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/game.types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/game.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/game.utils.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,78 +23,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Field/Field.component.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-113">
-              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Gate/Gate.container.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Gate/Gate.component.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Field/Field.container.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ScoreBoard/ScoreBoard.component.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="103" selection-start-line="14" selection-start-column="103" selection-end-line="14" selection-end-column="103" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.container.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.component.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
@@ -112,25 +35,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ScoreBoard/ScoreBoard.container.ts">
+        <entry file="file://$PROJECT_DIR$/src/store/actions/game.actions.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="144">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/store/actions/game.actions.ts">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/game.utils.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="52" column="113" selection-start-line="52" selection-start-column="113" selection-end-line="52" selection-end-column="113" />
-              <folding>
-                <element signature="e#0#61#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="721">
+              <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -138,11 +55,65 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="28" column="2" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
+            <state relative-caret-position="611">
+              <caret line="53" column="92" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="92" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/selectors/field.selectors.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/state.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" selection-start-line="4" selection-end-line="9" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wallaby.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="163" selection-start-line="8" selection-start-column="163" selection-end-line="8" selection-end-column="163" />
             </state>
           </provider>
         </entry>
@@ -153,8 +124,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -172,8 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/actions/settings.actions.ts" />
-        <option value="$PROJECT_DIR$/src/Path/Path.component.ts" />
         <option value="$PROJECT_DIR$/src/Path/Path.container.ts" />
         <option value="$PROJECT_DIR$/src/actions/types.ts" />
         <option value="$PROJECT_DIR$/src/actions/utils.ts" />
@@ -212,21 +181,23 @@
         <option value="$PROJECT_DIR$/src/utils/field.utils.ts" />
         <option value="$PROJECT_DIR$/src/types/game.types.ts" />
         <option value="$PROJECT_DIR$/src/store/reducers/game.reducer.ts" />
-        <option value="$PROJECT_DIR$/src/utils/game.utils.ts" />
         <option value="$PROJECT_DIR$/src/ScoreBoard/ScoreBoard.container.ts" />
         <option value="$PROJECT_DIR$/src/Field/Field.container.ts" />
         <option value="$PROJECT_DIR$/src/Field/Field.component.tsx" />
         <option value="$PROJECT_DIR$/src/Gate/Gate.container.ts" />
         <option value="$PROJECT_DIR$/src/Gate/Gate.component.tsx" />
         <option value="$PROJECT_DIR$/src/ScoreBoard/ScoreBoard.component.tsx" />
-        <option value="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" />
         <option value="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.container.ts" />
         <option value="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.component.tsx" />
+        <option value="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" />
         <option value="$PROJECT_DIR$/src/store/actions/game.actions.ts" />
+        <option value="$PROJECT_DIR$/src/utils/game.utils.ts" />
+        <option value="$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts" />
+        <option value="$PROJECT_DIR$/wallaby.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="173" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -247,100 +218,7 @@
             <path>
               <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="typescript" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="typescript" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Ball" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Field" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Gate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NextMovesGrid" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Path" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ScoreBoard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="selectors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="types" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -353,15 +231,18 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript JSX" />
     <property name="editorconfig.notification" value="null" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.15.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -371,11 +252,13 @@
       <recent name="$PROJECT_DIR$/src/types" />
     </key>
     <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/src/utils/game.utils.ts" />
       <recent name="$PROJECT_DIR$/src/utils/common.utils.ts" />
       <recent name="$PROJECT_DIR$/src/selectors/game.selectors.ts" />
       <recent name="$PROJECT_DIR$/src/actions/game.actions.ts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Gate" />
       <recent name="$PROJECT_DIR$/src/actions" />
     </key>
@@ -392,6 +275,34 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Wallaby.js.wallaby">
+    <configuration name="Possible moves selector tests.Should provide a possible to an adjacent edge when in corner" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts" />
+      <test-names>
+        <test-name value="Possible moves selector tests" />
+        <test-name value="Should provide a possible to an adjacent edge when in corner" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="wallaby" type="wallaby" factoryName="Wallaby.js" singleton="false" config="$PROJECT_DIR$/wallaby.js" node="$PROJECT_DIR$/../.nvm/versions/node/v10.15.0/bin/node">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Jest.Possible moves selector tests.Should provide a possible to an adjacent edge when in corner" />
+      <item itemvalue="Wallaby.js.wallaby" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.Possible moves selector tests.Should provide a possible to an adjacent edge when in corner" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -406,12 +317,20 @@
       <workItem from="1549800811889" duration="542000" />
       <workItem from="1550132172516" duration="976000" />
       <workItem from="1550392057579" duration="18358000" />
-      <workItem from="1550567586956" duration="52474000" />
+      <workItem from="1550567586956" duration="56530000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Possible_moves_selector_tests_Should_provide_a_possible_to_an_adjacent_edge_when_in_corner - 2019.02.24 at 10h 44m 13s.xml">
+      <configuration name="Possible moves selector tests.Should provide a possible to an adjacent edge when in corner" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="Possible_moves_selector_tests_Should_provide_a_possible_to_an_adjacent_edge_when_in_corner - 2019.02.24 at 10h 44m 34s.xml">
+      <configuration name="Possible moves selector tests.Should provide a possible to an adjacent edge when in corner" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98886000" />
+    <option name="totallyTimeSpent" value="102942000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -423,22 +342,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1200" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49837664" visible="true" weight="0.26066098" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49837664" visible="true" weight="0.26066098" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5016234" side_tool="true" weight="0.2958435" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32944345" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32944345" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297062" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32944345" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32944345" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.27199283" />
@@ -452,27 +371,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="1444" column="5" selection-start-line="1444" selection-start-column="5" selection-end-line="1444" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/redux/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2682">
-          <caret line="93" column="26" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/redux-thunk/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/actions/field.actions.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -483,24 +381,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/rendering.utils.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/state.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -657,16 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/selectors/field.selectors.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Field/Field.module.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -758,16 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/game.utils.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ScoreBoard/ScoreBoard.module.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -835,16 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="28" column="2" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.container.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -865,13 +719,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/state.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" selection-start-line="4" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/selectors/field.selectors.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/actions/game.actions.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="52" column="113" selection-start-line="52" selection-start-column="113" selection-end-line="52" selection-end-column="113" />
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/game.utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="53" column="92" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="92" />
           <folding>
-            <element signature="e#0#61#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.nvmrc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wallaby.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="163" selection-start-line="8" selection-start-column="163" selection-end-line="8" selection-end-column="163" />
         </state>
       </provider>
     </entry>

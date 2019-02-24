@@ -51,6 +51,7 @@ export const pathCoordinatesSelector = createSelector(
     }, [])
 );
 
+//TODO: handle different edges (no next move on the same edge but available on the adjacent edge)
 export const possibleMovesSelector = createSelector(
     gameSettingsSelector,
     ballNodeSelector,
