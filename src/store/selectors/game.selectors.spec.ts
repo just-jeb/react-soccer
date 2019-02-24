@@ -45,5 +45,13 @@ describe('Possible moves selector tests', () => {
             gameState: {...mockState.gameState, ballNode: '1,0'}
         });
         expect(nextMovesYEdge).toContainEqual(expect.objectContaining({coordinates: {x: 0, y: 1}}));
+    });
+
+    it('Should return no possible moves when the state is not Playing', () => {
+        const nextMoves = possibleMovesSelector({
+            ...mockState,
+            gameState: {...mockState.gameState, gameStatus: EGameStatus.EndWin}
+        }, );
+        expect(nextMoves).toEqual([]);
     })
 });

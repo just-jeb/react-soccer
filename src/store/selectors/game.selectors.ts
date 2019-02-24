@@ -1,9 +1,9 @@
 import {IState} from "../state";
 import {createSelector} from "reselect";
-import {TConnectionCoords} from "../../types/game.types";
+import {EGameStatus, TConnectionCoords} from "../../types/game.types";
 import {nodesSelector} from "./field.selectors";
 import {gameSettingsSelector} from "./settings.selector";
-import {getNeighbors, isEdge, isMiddle, isXEdge, isYEdge} from "../../utils/field.utils";
+import {getNeighbors, isMiddle, isXEdge, isYEdge} from "../../utils/field.utils";
 import {nodesConnected} from "../../utils/game.utils";
 import {IPoint} from "../../types/common.types";
 
@@ -57,7 +57,11 @@ export const possibleMovesSelector = createSelector(
     ballNodeSelector,
     nodesSelector,
     pathSelector,
-    ({fieldSize}, ballNodeId, nodes, path) => {
+    gameStatusSelector,
+    ({fieldSize}, ballNodeId, nodes, path, status) => {
+        if(status !== EGameStatus.Playing){
+            return [];
+        }
         const ballNode = nodes[ballNodeId];
         const {coordinates} = ballNode;
         const {x: bx, y: by} = coordinates;

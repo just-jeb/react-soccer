@@ -4,7 +4,6 @@
     <list default="true" id="c56a0048-c219-43bf-a70b-66c8c55435d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/field.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/field.utils.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,23 +34,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="71" column="20" lean-forward="true" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+            <state relative-caret-position="394">
+              <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/field.utils.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -77,14 +67,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+            <state relative-caret-position="537">
+              <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/@types/jest/index.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="652" column="8" selection-start-line="652" selection-start-column="8" selection-end-line="652" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -182,8 +181,8 @@
         <option value="$PROJECT_DIR$/src/utils/game.utils.ts" />
         <option value="$PROJECT_DIR$/wallaby.js" />
         <option value="$PROJECT_DIR$/src/utils/field.utils.ts" />
-        <option value="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" />
         <option value="$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts" />
+        <option value="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" />
       </list>
     </option>
   </component>
@@ -204,6 +203,24 @@
             <path>
               <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@types" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@types" type="462c0819:PsiDirectoryNode" />
+              <item name="jest" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
@@ -326,7 +343,7 @@
       <workItem from="1549800811889" duration="542000" />
       <workItem from="1550132172516" duration="976000" />
       <workItem from="1550392057579" duration="18358000" />
-      <workItem from="1550567586956" duration="58235000" />
+      <workItem from="1550567586956" duration="59170000" />
     </task>
     <servers />
   </component>
@@ -339,7 +356,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104647000" />
+    <option name="totallyTimeSpent" value="105582000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -359,7 +376,7 @@
       <window_info id="npm" order="2" sideWeight="0.5016234" side_tool="true" weight="0.2958435" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32944345" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32944345" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32944345" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -369,7 +386,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32944345" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.27199283" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.27199283" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -380,16 +397,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/store/store.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/types/common.types.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -768,20 +775,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.ts">
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/jest/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="71" column="20" lean-forward="true" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+        <state relative-caret-position="257">
+          <caret line="652" column="8" selection-start-line="652" selection-start-column="8" selection-end-line="652" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts">
+    <entry file="file://$PROJECT_DIR$/src/store/selectors/game.selectors.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+        <state relative-caret-position="394">
+          <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
