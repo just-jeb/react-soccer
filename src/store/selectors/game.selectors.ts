@@ -3,8 +3,9 @@ import {createSelector} from "reselect";
 import {TConnectionCoords} from "../../types/game.types";
 import {nodesSelector} from "./field.selectors";
 import {gameSettingsSelector} from "./settings.selector";
-import {getNeighbors, isEdge, isMiddle} from "../../utils/field.utils";
+import {getNeighbors, isEdge, isMiddle, isXEdge, isYEdge} from "../../utils/field.utils";
 import {nodesConnected} from "../../utils/game.utils";
+import {IPoint} from "../../types/common.types";
 
 export const gameStateSelector = (state: IState) => state.gameState;
 export const gatesSelector = (state: IState) => gameStateSelector(state).gates;
@@ -51,7 +52,6 @@ export const pathCoordinatesSelector = createSelector(
     }, [])
 );
 
-//TODO: handle different edges (no next move on the same edge but available on the adjacent edge)
 export const possibleMovesSelector = createSelector(
     gameSettingsSelector,
     ballNodeSelector,
@@ -59,17 +59,22 @@ export const possibleMovesSelector = createSelector(
     pathSelector,
     ({fieldSize}, ballNodeId, nodes, path) => {
         const ballNode = nodes[ballNodeId];
-        const neighbors = getNeighbors(ballNode.coordinates, fieldSize);
+        const {coordinates} = ballNode;
+        const {x: bx, y: by} = coordinates;
+        const neighbors = getNeighbors(coordinates, fieldSize);
 
         let possibleMoves = Object.values(nodes)
             .filter(({coordinates: {x, y}}) =>
                 neighbors.some(({x: nx, y: ny}) => x === nx && y === ny))
             .filter(node => !nodesConnected(node, ballNode, path));
 
-        const mutualExclusionPredicates = [isEdge(fieldSize), isMiddle(fieldSize)];
+        const isSameEdge = ({x, y}: IPoint) => (isXEdge(fieldSize)(coordinates) && bx === x)
+            || (isYEdge(fieldSize)(coordinates) && by === y);
+
+        const mutualExclusionPredicates = [isSameEdge, isMiddle(fieldSize)];
         for (const predicate of mutualExclusionPredicates) {
-            if (predicate(ballNode.coordinates)) {
-                possibleMoves = possibleMoves.filter(({coordinates}) => !predicate(coordinates))
+            if (predicate(coordinates)) {
+                possibleMoves = possibleMoves.filter(({coordinates: coords}) => !predicate(coords))
             }
         }
         return possibleMoves;

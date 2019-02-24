@@ -1,7 +1,15 @@
 import {IDimensions, IPoint} from "../types/common.types";
 
-export const isEdge = ( {width, height}: IDimensions) => ({x, y}: IPoint): boolean => {
-    return x === 0 || y === 0 || x === width - 1 || y === height - 1;
+export const isEdge = ( d: IDimensions) => (p: IPoint): boolean => {
+    return isXEdge(d)(p) || isYEdge(d)(p);
+};
+
+export const isXEdge = ( {width}: IDimensions) => ({x}: IPoint): boolean => {
+    return x === 0 || x === width - 1;
+};
+
+export const isYEdge = ( {height}: IDimensions) => ({y}: IPoint): boolean => {
+    return y === 0 || y === height - 1;
 };
 
 export const isMiddle = ({width}: IDimensions) => ({x}: IPoint): boolean => {

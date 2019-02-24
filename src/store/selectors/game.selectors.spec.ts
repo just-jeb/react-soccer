@@ -33,9 +33,17 @@ describe('Possible moves selector tests', () => {
         }
     });
 
-    it('Should provide a possible to an adjacent edge when in corner', () => {
-        const state = {...mockState, gameState: {...mockState.gameState, ballNode: '0,1'}};
-        const nextMoves = possibleMovesSelector(state);
-        expect(nextMoves).toContainEqual(expect.objectContaining({coordinates: {x: 1, y: 0}}));
+    it('Should provide a possible move to an adjacent edge when in corner', () => {
+        const nextMovesXEdge = possibleMovesSelector({
+            ...mockState,
+            gameState: {...mockState.gameState, ballNode: '0,1'}
+        });
+        expect(nextMovesXEdge).toContainEqual(expect.objectContaining({coordinates: {x: 1, y: 0}}));
+
+        const nextMovesYEdge = possibleMovesSelector({
+            ...mockState,
+            gameState: {...mockState.gameState, ballNode: '1,0'}
+        });
+        expect(nextMovesYEdge).toContainEqual(expect.objectContaining({coordinates: {x: 0, y: 1}}));
     })
 });
