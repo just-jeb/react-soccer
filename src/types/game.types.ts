@@ -16,6 +16,7 @@ export interface IPlayer {
 export type TPlayers = {readonly [id: string]: IPlayer};
 
 export interface IGame {
+    readonly id: string;
     readonly players: IPlayer[]
     readonly ballNode: string,
     readonly currentPlayer: string,

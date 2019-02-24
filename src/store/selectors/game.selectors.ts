@@ -10,6 +10,7 @@ import {IPoint} from "../../types/common.types";
 export const gameStateSelector = (state: IState) => state.gameState;
 export const gatesSelector = (state: IState) => gameStateSelector(state).gates;
 export const gameStatusSelector = (state: IState) => gameStateSelector(state).gameStatus;
+export const gameIdSelector = (state: IState) => gameStateSelector(state).id;
 export const ballNodeSelector = (state: IState) => gameStateSelector(state).ballNode;
 export const ballPositionSelector = createSelector(
     ballNodeSelector,

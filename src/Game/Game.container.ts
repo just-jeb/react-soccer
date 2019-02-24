@@ -1,17 +1,18 @@
 import {ThunkDispatch} from "redux-thunk";
 import {IState} from "../store/state";
-import {GameActions, initializeGame} from "../store/actions/game.actions";
+import {GameActions} from "../store/actions/game.actions";
 import {connect} from "react-redux";
 import {GameComponent} from "./Game.component";
-import {gameStatusSelector} from "../store/selectors/game.selectors";
+import {gameIdSelector} from "../store/selectors/game.selectors";
+import {saveGame} from "../store/actions/meta-game.actions";
 
 
 const mapStateToProps = (state: IState) => ({
-  gameStatus: gameStatusSelector(state)
+    gameId: gameIdSelector(state)
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<IState, any, GameActions>) => ({
-    initGame: () => dispatch(initializeGame())
+    saveGame: () => dispatch(saveGame())
 });
 
 export default connect(

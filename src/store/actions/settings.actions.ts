@@ -2,13 +2,13 @@ import {IDimensions} from "../../types/common.types";
 import {createAction} from "./utils";
 import {ActionsUnion} from "./types";
 
-export enum SettingsActionsTypes {
+export enum ESettingsActionsTypes {
     SET_GAME_FIELD_SIZE = '[setup] SET_GAME_FIELD_SIZE'
 }
 
 
 export const SettingsActions = {
-    setGameFieldSize: (size: IDimensions) => createAction(SettingsActionsTypes.SET_GAME_FIELD_SIZE, size)
+    setGameFieldSize: (size: IDimensions) => createAction(ESettingsActionsTypes.SET_GAME_FIELD_SIZE, size)
 };
 
 

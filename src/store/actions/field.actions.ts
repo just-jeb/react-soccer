@@ -4,7 +4,6 @@ import {ActionsUnion} from "./types";
 
 export enum FieldActionsTypes {
     CREATE_NODES = '[setup] CREATE_NODES',
-    ADD_CONNECTION = '[field] ADD_CONNECTION'
 }
 
 

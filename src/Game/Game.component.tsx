@@ -1,11 +1,10 @@
 import React from "react";
 import ScoreContainer from '../ScoreBoard/ScoreBoard.container';
 import FieldContainer from '../Field/Field.container';
-import {EGameStatus} from "../types/game.types";
 
 interface GameProps {
-    initGame: () => void,
-    gameStatus: EGameStatus
+    gameId: string,
+    saveGame: () => void
 }
 
 export class GameComponent extends React.PureComponent<GameProps> {
@@ -13,15 +12,13 @@ export class GameComponent extends React.PureComponent<GameProps> {
         super(props);
     }
 
-    componentDidMount(): void {
-        this.props.initGame();
-    }
     //TODO: use react-router to switch between screens
     render(): React.ReactNode {
-        return this.props.gameStatus === EGameStatus.NotStarted ? <div/> : (
+        return !this.props.gameId ? <div/> : (
             <div>
                 <ScoreContainer/>
                 <FieldContainer/>
+                <button onClick={this.props.saveGame}>Save</button>
             </div>
         );
     }

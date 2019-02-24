@@ -1,11 +1,13 @@
 import {Reducer} from "redux";
 import {EGameStatus, IGame, TConnection} from "../../types/game.types";
 import {EGameActionsTypes, GameActions} from "../actions/game.actions";
-import {reduceToDictionary} from "../../utils/common.utils";
+import {reduceToDictionary, uuid} from "../../utils/common.utils";
 import {determineGameStatus, determineNextPlayer} from "../../utils/game.utils";
+import {EMetaGameActionsTypes, MetaGameActions} from "../actions/meta-game.actions";
 
 //TODO: find a way to deal with empty state (the default one)
 const defaultGameState: IGame = {
+    id: '',
     currentPlayer: '',
     ballNode: '',
     gameStatus: EGameStatus.NotStarted,
@@ -15,11 +17,13 @@ const defaultGameState: IGame = {
     players: []
 };
 
-export const gameState: Reducer<IGame, GameActions> = (state = defaultGameState, action) => {
+
+export const gameState: Reducer<IGame, GameActions | MetaGameActions> = (state = defaultGameState, action) => {
     switch (action.type) {
-        case EGameActionsTypes.START_NEW_GAME:
+        case EGameActionsTypes.START_GAME:
             const {startNodeId, defaultBoosters, gates, players} = action.payload;
             return {
+                id: uuid(),
                 currentPlayer: players[0].id,
                 ballNode: startNodeId,
                 gameStatus: EGameStatus.Playing,
@@ -28,6 +32,8 @@ export const gameState: Reducer<IGame, GameActions> = (state = defaultGameState,
                 gates: reduceToDictionary(gates, 'owner'),
                 players: players
             };
+        case EMetaGameActionsTypes.LOAD_GAME:
+            return action.payload.game;
         case EGameActionsTypes.MAKE_MOVE:
             const newBallNode = action.payload;
             const {ballNode, currentPlayer, path, boosters} = state;
