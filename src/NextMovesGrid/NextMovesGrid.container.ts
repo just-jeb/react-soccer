@@ -1,20 +1,18 @@
 import {IState} from "../store/state";
-import {currentPlayerColorSelector, possibleMovesSelector} from "../store/selectors/game.selectors";
+import {currentPlayerColorSelector} from "../store/selectors/game.selectors";
 import {connect} from "react-redux";
 import {NextMovesGridComponent} from "./NextMovesGrid.component";
-import {ThunkDispatch} from "redux-thunk";
-import {GameActions} from "../store/actions/game.actions";
+import {makeMove} from "../store/actions/game.actions";
+import {possibleMovesSelector} from "../store/selectors/field.selectors";
 
 const mapStateToProps = (state: IState) => ({
     nextMoves: possibleMovesSelector(state),
     hintColor: currentPlayerColorSelector(state)
 });
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<IState, any, GameActions>) => ({
-    onClick: (id: string) => dispatch(GameActions.makeMove(id))
-});
-
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    {
+        makeMove
+    }
 )(NextMovesGridComponent);

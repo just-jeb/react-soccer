@@ -1,14 +1,13 @@
-import {INode} from "../../types/field.types";
 import {createAction} from "./utils";
 import {ActionsUnion} from "./types";
 
-export enum FieldActionsTypes {
-    CREATE_NODES = '[setup] CREATE_NODES',
+export enum EFieldActionsTypes {
+    MOVE_BALL = '[field] MOVE_BALL',
 }
 
 
 export const FieldActions = {
-    createNodes: (nodes: INode[]) => createAction(FieldActionsTypes.CREATE_NODES, nodes)
+    moveBall: (nodeId: string) => createAction(EFieldActionsTypes.MOVE_BALL, {nodeId})
 };
 
 

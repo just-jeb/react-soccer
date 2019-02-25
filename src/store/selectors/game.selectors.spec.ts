@@ -3,7 +3,7 @@ import {createFieldBoosters, createGoals, createNodes} from "../../utils/game.ut
 import {IDimensions} from "../../types/common.types";
 import {EGameStatus, IPlayer} from "../../types/game.types";
 import {reduceToDictionary} from "../../utils/common.utils";
-import {possibleMovesSelector} from "./game.selectors";
+import {possibleMovesSelector} from "./field.selectors";
 
 describe('Possible moves selector tests', () => {
     let mockState: IState;

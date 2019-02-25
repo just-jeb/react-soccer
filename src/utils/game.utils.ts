@@ -1,5 +1,5 @@
-import {EGameStatus, IGame, IGoal, IPlayer, TBoosters, TConnection} from "../types/game.types";
-import {INode} from "../types/field.types";
+import {EGameStatus, IGame, IPlayer} from "../types/game.types";
+import {IGoal, INode, TBoosters, TConnection} from "../types/field.types";
 import {IDimensions} from "../types/common.types";
 import {stringifyPoint} from "./common.utils";
 import {isEdge, isMiddle} from "./field.utils";
@@ -9,8 +9,8 @@ export const nodesConnected = (node1: INode, node2: INode, path: TConnection[]) 
         || (id1 === node2.id && id2 === node1.id))
 };
 
-//TODO: use type of makeMove action payload instead of newBallNode and string
-export const determineNextPlayer = ({boosters, currentPlayer, players}: IGame, newBallNode: string): string => {
+//TODO: use type of updateGameState action payload instead of newBallNode and string
+export const determineNextPlayer = (boosters: TBoosters, currentPlayer: string, players: IPlayer[], newBallNode: string): string => {
     if (!boosters[newBallNode]) {
         const i = players.findIndex(p => p.id === currentPlayer);
         const nextIndex = (i + 1) % players.length;
@@ -20,7 +20,7 @@ export const determineNextPlayer = ({boosters, currentPlayer, players}: IGame, n
     }
 };
 
-export const determineGameStatus = ({goals, gameStatus}: IGame, newBallNode: string): EGameStatus => {
+export const determineGameStatus = (goals: IGoal[], gameStatus: EGameStatus, newBallNode: string): EGameStatus => {
     const capturedGoal = Object.values(goals).find(g => g.nodes.includes(newBallNode));
     if (capturedGoal) {
         return EGameStatus.End;

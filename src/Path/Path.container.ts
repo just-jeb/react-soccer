@@ -1,5 +1,5 @@
 import {IState} from "../store/state";
-import {pathCoordinatesSelector} from "../store/selectors/game.selectors";
+import {pathCoordinatesSelector} from "../store/selectors/field.selectors";
 import {connect} from "react-redux";
 import {PathComponent} from "./Path.component";
 

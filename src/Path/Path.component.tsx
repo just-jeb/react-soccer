@@ -1,5 +1,5 @@
 import React from 'react';
-import {TConnectionCoords} from "../types/game.types";
+import {TConnectionCoords} from "../types/field.types";
 
 interface PathComponentProps {
     pathCoords: TConnectionCoords[];

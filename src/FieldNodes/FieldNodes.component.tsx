@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {INode} from "../types/field.types";
-import {TBoosters} from "../types/game.types";
+import {TBoosters} from "../types/field.types";
 import {FieldNodeComponent} from "../FieldNode/FieldNode.component";
 
 interface IProps {

@@ -1,35 +1,39 @@
 import {ActionsUnion, ReactSoccerThunkAction} from "./types";
-import {gameSettingsSelector} from "../selectors/settings.selector";
-import {FieldActions} from "./field.actions";
 import {createAction} from "./utils";
-import {IGoal, IPlayer, TBoosters} from "../../types/game.types";
-import {createGoals, createNodes, createFieldBoosters} from "../../utils/game.utils";
+import {EGameStatus, IPlayer} from "../../types/game.types";
+import {determineGameStatus, determineNextPlayer} from "../../utils/game.utils";
+import {IGoal, INode, TBoosters} from "../../types/field.types";
+import {boostersSelector, goalsSelector} from "../selectors/field.selectors";
+import {currentPlayerSelector, gameStatusSelector, playersSelector} from "../selectors/game.selectors";
+import {FieldActions} from "./field.actions";
 
-//TODO: move to meta game actions?
-export const startNewGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
-    const fieldSize = gameSettingsSelector(getState()).fieldSize;
-    const nodes = createNodes(fieldSize);
-    const players: IPlayer[] = [{id: '1', name: 'Jenia', color: 'purple'}, {id: '2', name: 'Eyal', color: 'orange'}];
-    const gates = createGoals(fieldSize, nodes, players);
-    const defaultBoosters = createFieldBoosters(fieldSize, nodes, gates);
-    const startNodeId = nodes[Math.floor(nodes.length / 2)].id;
+export const makeMove: (newBallNode: string) => ReactSoccerThunkAction = newBallNode => (dispatch, getState) => {
+    const state = getState();
 
-    //TODO: Consider uniting FieldActions and GameActions
-    dispatch(FieldActions.createNodes(nodes));
-    dispatch(GameActions.startNewGame(startNodeId, defaultBoosters, gates, players));
+    let nextPlayer = determineNextPlayer(
+        boostersSelector(state),
+        currentPlayerSelector(state),
+        playersSelector(state),
+        newBallNode
+    );
+    let gameStatus = determineGameStatus(
+        goalsSelector(state),
+        gameStatusSelector(state),
+        newBallNode
+    );
+    dispatch(GameActions.updateGameState(gameStatus, nextPlayer));
+    dispatch(FieldActions.moveBall(newBallNode));
 };
 
 
 export enum EGameActionsTypes {
-    MAKE_MOVE = '[game] MAKE_MOVE',
-    START_GAME = '[game] START_GAME'
+    UPDATE_GAME_STATE = '[game] MAKE_MOVE'
 }
 
 
 export const GameActions = {
-    makeMove: (nodeId: string) => createAction(EGameActionsTypes.MAKE_MOVE, nodeId),
-    startNewGame: (startNodeId: string, defaultBoosters: TBoosters, goals: IGoal[], players: IPlayer[]) =>
-        createAction(EGameActionsTypes.START_GAME,{startNodeId, defaultBoosters, goals, players})
+    updateGameState: (gameStatus: EGameStatus, currentPlayer: string) =>
+        createAction(EGameActionsTypes.UPDATE_GAME_STATE, {gameStatus, currentPlayer}),
 };
 
 

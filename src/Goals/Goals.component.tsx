@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {IGoal} from "../types/game.types";
+import {IGoal} from "../types/field.types";
 import GoalContainer from "../Goal/Goal.container";
 
 interface IProps {
