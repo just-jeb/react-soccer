@@ -5,6 +5,7 @@ import {gameSettings} from "./reducers/settings.reducer";
 import thunk, {ThunkDispatch} from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {gameState} from "./reducers/game.reducer";
+import {metaInfo} from "./reducers/meta-game.reducer";
 
 const composeEnhancers = composeWithDevTools({
     //TODO: Redux devtools options here
@@ -15,7 +16,8 @@ const composeEnhancers = composeWithDevTools({
 export const store = createStore(combineReducers<IState>({
         fieldState,
         gameSettings,
-        gameState
+        gameState,
+        metaInfo
     }),
     composeEnhancers(
         applyMiddleware<ThunkDispatch<IState, undefined, AnyAction>, IState>(thunk)

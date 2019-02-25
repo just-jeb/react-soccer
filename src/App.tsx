@@ -7,6 +7,7 @@ import StartGameContainer from './StartGame/StartGame.container';
 import {CentralizerComponent} from "./Centralizer/Centralizer.component";
 import {Redirect, Route, Switch} from "react-router";
 import {BrowserRouter} from "react-router-dom";
+import SavedGamesContainer from './SavedGames/SavedGames.container';
 
 class App extends Component {
 
@@ -23,6 +24,7 @@ class App extends Component {
                             <Switch>
                                 <Route exact path={'/main-menu'} component={MainMenuContainer}/>
                                 <Route exact path={'/game/:id?'} component={StartGameContainer}/>
+                                <Route exact path={'/load-game'} component={SavedGamesContainer}/>
                                 <Redirect exact from={'/'} to={'main-menu'}/>
                             </Switch>
                         </CentralizerComponent>
