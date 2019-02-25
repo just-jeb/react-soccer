@@ -2,29 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c56a0048-c219-43bf-a70b-66c8c55435d9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ball/Ball.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ball/Ball.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FieldNodes/FieldNodes.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/FieldNodes/FieldNodes.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FieldNodes/FieldNodes.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/FieldNodes/FieldNodes.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Goal/Goal.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Goal/Goal.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Goals/Goals.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Goals/Goals.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Goals/Goals.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Goals/Goals.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Path/Path.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Path/Path.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Path/Path.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Path/Path.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StartGame/StartGame.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/StartGame/StartGame.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/field.actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/field.actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/game.actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/game.actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/meta-game.actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/meta-game.actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/field.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/field.reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/game.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/game.reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/field.selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/field.selectors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/game.selectors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/field.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/field.types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/game.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/game.types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/game.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/game.utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Game.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Game.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Game.container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SavedGames/SavedGame.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SavedGame/SavedGame.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SavedGames/SavedGame.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/SavedGame/SavedGame.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SavedGames/SavedGames.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SavedGames/SavedGames.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StartGame/StartGame.component.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StartGame/StartGame.container.ts" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Field/Field.component.tsx">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Game/Game.container.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+            <state relative-caret-position="237">
+              <caret line="14" column="96" selection-start-line="14" selection-start-column="96" selection-end-line="14" selection-end-column="96" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -50,58 +36,70 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Game/Game.container.ts">
+        <entry file="file://$PROJECT_DIR$/node_modules/@types/history/index.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainMenu/MainMenu.container.ts">
+        <entry file="file://$PROJECT_DIR$/node_modules/@types/react-router/index.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="250">
+              <caret line="68" column="17" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="93" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="93" />
+            <state relative-caret-position="31">
+              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/reducers/game.reducer.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.container.ts">
+        <entry file="file://$PROJECT_DIR$/src/store/store.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="180">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#79#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.component.tsx">
+        <entry file="file://$PROJECT_DIR$/src/utils/game.utils.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state relative-caret-position="126">
+              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Game/Game.component.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -110,10 +108,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainMenu/MainMenu.component.tsx">
+        <entry file="file://$PROJECT_DIR$/src/SavedGame/SavedGame.component.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -122,36 +120,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Ball/Ball.component.tsx">
+        <entry file="file://$PROJECT_DIR$/src/store/actions/types.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+            <state relative-caret-position="144">
+              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
               <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FieldNode/FieldNode.component.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FieldNodes/FieldNodes.component.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#46#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/store/selectors/game.selectors.spec.ts" />
         <option value="$PROJECT_DIR$/src/App.scss" />
         <option value="$PROJECT_DIR$/src/Centralizer/Centralizer.modules.scss" />
         <option value="$PROJECT_DIR$/src/MainMenu/MainMenu.moduel.scss" />
@@ -209,8 +182,6 @@
         <option value="$PROJECT_DIR$/src/StartGame/StartGame.container.ts" />
         <option value="$PROJECT_DIR$/src/MainMenu/MainMenu.container.ts" />
         <option value="$PROJECT_DIR$/src/Centralizer/Centralizer.component.tsx" />
-        <option value="$PROJECT_DIR$/src/Game/Game.component.tsx" />
-        <option value="$PROJECT_DIR$/src/Game/Game.container.ts" />
         <option value="$PROJECT_DIR$/src/Goal/Goal.container.ts" />
         <option value="$PROJECT_DIR$/src/Goal/Goal.component.tsx" />
         <option value="$PROJECT_DIR$/src/Goals/Goals.container.ts" />
@@ -232,7 +203,10 @@
         <option value="$PROJECT_DIR$/src/store/selectors/field.selectors.ts" />
         <option value="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.container.ts" />
         <option value="$PROJECT_DIR$/src/NextMovesGrid/NextMovesGrid.component.tsx" />
+        <option value="$PROJECT_DIR$/src/Game/Game.container.ts" />
+        <option value="$PROJECT_DIR$/src/Game/Game.component.tsx" />
         <option value="$PROJECT_DIR$/src/App.tsx" />
+        <option value="$PROJECT_DIR$/src/Game/Game.container.tsx" />
       </list>
     </option>
   </component>
@@ -270,7 +244,21 @@
               <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
               <item name="node_modules" type="462c0819:PsiDirectoryNode" />
               <item name="@types" type="462c0819:PsiDirectoryNode" />
+              <item name="history" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@types" type="462c0819:PsiDirectoryNode" />
               <item name="react" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@types" type="462c0819:PsiDirectoryNode" />
+              <item name="react-router" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
@@ -300,76 +288,7 @@
               <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Ball" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Field" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FieldNode" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="MainMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="NextMovesGrid" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="selectors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="types" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-soccer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-soccer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="SavedGames" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -398,6 +317,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/SavedGame" />
       <recent name="$PROJECT_DIR$/src/Ball" />
       <recent name="$PROJECT_DIR$/src/store" />
       <recent name="$PROJECT_DIR$/src/types" />
@@ -470,7 +390,7 @@
       <workItem from="1549800811889" duration="542000" />
       <workItem from="1550132172516" duration="976000" />
       <workItem from="1550392057579" duration="18358000" />
-      <workItem from="1550567586956" duration="95356000" />
+      <workItem from="1550567586956" duration="97864000" />
     </task>
     <servers />
   </component>
@@ -483,7 +403,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141768000" />
+    <option name="totallyTimeSpent" value="144276000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -508,12 +428,12 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.32944345" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32944345" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.12477558" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.27199283" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.27199283" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -524,57 +444,10 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/store/reducers/meta-game.reducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SavedGames/SavedGames.container.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/meta-game.utils.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SavedGames/SavedGames.component.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/types/settings.types.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SavedGames/SavedGame.component.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -585,7 +458,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SavedGames/SavedGame.module.scss">
+    <entry file="file://$PROJECT_DIR$/src/SavedGame/SavedGame.module.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
@@ -633,16 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StartGame/StartGame.container.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Centralizer/Centralizer.component.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -670,30 +533,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StartGame/StartGame.component.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/reselect/lib/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="964" column="16" selection-start-line="964" selection-start-column="16" selection-end-line="964" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/Game.component.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -798,13 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/game.utils.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="22" column="75" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/actions/utils.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -838,16 +674,6 @@
           <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/reducers/game.reducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -942,16 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/Game.container.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainMenu/MainMenu.container.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -962,12 +778,110 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/types.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducers/game.reducer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/store.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/game.utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/Game.component.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StartGame/StartGame.component.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" selection-start-line="3" selection-end-line="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StartGame/StartGame.container.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SavedGame/SavedGame.component.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="93" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="93" />
+        <state relative-caret-position="31">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-router/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="68" column="17" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/history/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/Game.container.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="14" column="96" selection-start-line="14" selection-start-column="96" selection-end-line="14" selection-end-column="96" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

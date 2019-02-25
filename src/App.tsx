@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styles from './App.module.scss';
 import {Provider} from 'react-redux';
 import {store} from "./store/store";
-import StartGameContainer from './StartGame/StartGame.container';
+import GameContainer from './Game/Game.container';
 import {CentralizerComponent} from "./Centralizer/Centralizer.component";
 import {Redirect, Route, Switch} from "react-router";
 import {BrowserRouter} from "react-router-dom";
@@ -23,7 +23,7 @@ class App extends Component {
                         <CentralizerComponent>
                             <Switch>
                                 <Route exact path={'/main-menu'} component={MainMenuComponent}/>
-                                <Route exact path={'/game/:id?'} component={StartGameContainer}/>
+                                <Route exact path={'/game/:id?'} component={GameContainer}/>
                                 <Route exact path={'/load-game'} component={SavedGamesContainer}/>
                                 <Redirect exact from={'/'} to={'main-menu'}/>
                             </Switch>

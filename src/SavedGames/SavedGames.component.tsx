@@ -1,6 +1,6 @@
 import React from 'react';
 import {ISavedGameHeader} from "../types/meta-game.types";
-import {SavedGameComponent} from "./SavedGame.component";
+import {SavedGameComponent} from "../SavedGame/SavedGame.component";
 
 interface Props {
     savedGames: ISavedGameHeader[],
