@@ -1,4 +1,4 @@
-import {EGameStatus, IGame, IGate, IPlayer, TBoosters, TConnection} from "../types/game.types";
+import {EGameStatus, IGame, IGoal, IPlayer, TBoosters, TConnection} from "../types/game.types";
 import {INode} from "../types/field.types";
 import {IDimensions} from "../types/common.types";
 import {stringifyPoint} from "./common.utils";
@@ -20,10 +20,10 @@ export const determineNextPlayer = ({boosters, currentPlayer, players}: IGame, n
     }
 };
 
-export const determineGameStatus = ({gates, gameStatus}: IGame, newBallNode: string): EGameStatus => {
-    const capturedGate = Object.values(gates).find(g => g.nodes.includes(newBallNode));
-    if (capturedGate) {
-        return EGameStatus.EndWin;
+export const determineGameStatus = ({goals, gameStatus}: IGame, newBallNode: string): EGameStatus => {
+    const capturedGoal = Object.values(goals).find(g => g.nodes.includes(newBallNode));
+    if (capturedGoal) {
+        return EGameStatus.End;
     } else {
         return gameStatus;
     }
@@ -40,7 +40,7 @@ export const createNodes = ({width, height}: IDimensions): INode[] => {
     });
 };
 
-export const createGates = ({width, height}: IDimensions, nodes: INode[], [p1, p2]: IPlayer[]): IGate[] => {
+export const createGoals = ({width, height}: IDimensions, nodes: INode[], [p1, p2]: IPlayer[]): IGoal[] => {
     const midY = Math.floor(height / 2);
     const gatesYCoord = [midY - 1, midY, midY + 1];
     const mapGatesYCoordsToNodes = (transformFunction: (y: number) => number) =>
@@ -58,7 +58,7 @@ export const createGates = ({width, height}: IDimensions, nodes: INode[], [p1, p
     ];
 };
 
-export const createFieldBoosters = (fieldSize: IDimensions, nodes: INode[], gates: IGate[]): TBoosters => {
+export const createFieldBoosters = (fieldSize: IDimensions, nodes: INode[], gates: IGoal[]): TBoosters => {
     return nodes.reduce<TBoosters>((boosters, node) => {
         const isBooster = !gates.some(g => g.nodes.includes(node.id)) &&
             (isEdge(fieldSize)(node.coordinates) || isMiddle(fieldSize)(node.coordinates));

@@ -1,5 +1,5 @@
 import {IState} from "../state";
-import {createSelector} from "reselect";
+import {createSelector, defaultMemoize as memoize} from "reselect";
 import {EGameStatus, TConnectionCoords} from "../../types/game.types";
 import {nodesSelector} from "./field.selectors";
 import {gameSettingsSelector} from "./settings.selector";
@@ -8,7 +8,13 @@ import {nodesConnected} from "../../utils/game.utils";
 import {IPoint} from "../../types/common.types";
 
 export const gameStateSelector = (state: IState) => state.gameState;
-export const gatesSelector = (state: IState) => gameStateSelector(state).gates;
+///////////////////////////////////////////////////////////////////
+
+//TODO: Consider moving into reducer file
+//export const goalSelector = (state: IState) => gameReducer.getGoals(state.gameState)
+
+
+export const goalsSelector = (state: IState) => gameStateSelector(state).goals;
 export const gameStatusSelector = (state: IState) => gameStateSelector(state).gameStatus;
 export const gameIdSelector = (state: IState) => gameStateSelector(state).id;
 export const ballNodeSelector = (state: IState) => gameStateSelector(state).ballNode;
@@ -26,8 +32,21 @@ export const currentPlayerColorSelector = createSelector(
     playersSelector,
     (currentPlayer, players) => {
         const player = players.find(p => p.id === currentPlayer);
-        return player && player.color;
+        return (player && player.color) || 'black';
     }
+);
+
+export const nodesByIdsSelector = createSelector(
+    nodesSelector,
+    (nodes) => memoize((nodesIds: string[]) => nodesIds.map(id => nodes[id]))
+);
+
+export const playerColorSelector = createSelector(
+    playersSelector,
+    players => memoize((playerId: string) => {
+        const player = players.find(p => p.id === playerId);
+        return (player && player.color) || 'black'
+    })
 );
 
 export const boostersSelector = (state: IState) => gameStateSelector(state).boosters;
@@ -36,11 +55,6 @@ export const boosterSelector = (state: IState, props: { id: string }) => booster
 
 export const pathSelector = (state: IState) => gameStateSelector(state).path;
 
-export const gateNodesSelector = createSelector(
-    gatesSelector,
-    nodesSelector,
-    (gates, nodes) => (player: string) => gates[player].nodes.map(id => nodes[id])
-);
 
 //We use createSelector here because there is a data transformation that we want to memoize
 
@@ -60,7 +74,7 @@ export const possibleMovesSelector = createSelector(
     pathSelector,
     gameStatusSelector,
     ({fieldSize}, ballNodeId, nodes, path, status) => {
-        if(status !== EGameStatus.Playing){
+        if (status !== EGameStatus.Playing) {
             return [];
         }
         const ballNode = nodes[ballNodeId];

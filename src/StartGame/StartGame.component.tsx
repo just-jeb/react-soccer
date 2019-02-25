@@ -12,13 +12,9 @@ interface Props {
 }
 
 export class StartGameComponent extends React.PureComponent<Props> {
-    constructor(props: Props){
-        super(props);
-    }
-
     componentDidMount(): void {
         const {match: {params: {id}}, loadGame, startNewGame} = this.props;
-        if(id){
+        if (id){
             loadGame(id);
         } else {
             startNewGame();

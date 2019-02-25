@@ -1,5 +1,4 @@
 import React from 'react';
-import "./FieldNode.component.css";
 import {INode} from "../types/field.types";
 
 export interface IFieldNodeProps {

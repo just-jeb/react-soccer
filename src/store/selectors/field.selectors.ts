@@ -8,7 +8,7 @@ export const nodesSelector = (state: IState) => fieldStateSelector(state).nodes;
 export const nodeSelector = (state: IState, props: { id: string }) => nodesSelector(state)[props.id];
 
 //Data transformation => need for memoization
-export const nodeIdsSelector = createSelector(
+export const nodesListSelector = createSelector(
     nodesSelector,
-    nodes => Object.keys(nodes)
+    nodes => Object.values(nodes)
 );

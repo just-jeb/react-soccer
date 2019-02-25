@@ -1,5 +1,5 @@
 import {IState} from "../state";
-import {createFieldBoosters, createGates, createNodes} from "../../utils/game.utils";
+import {createFieldBoosters, createGoals, createNodes} from "../../utils/game.utils";
 import {IDimensions} from "../../types/common.types";
 import {EGameStatus, IPlayer} from "../../types/game.types";
 import {reduceToDictionary} from "../../utils/common.utils";
@@ -15,7 +15,7 @@ describe('Possible moves selector tests', () => {
             {color: 'black', id: '1', name: 'tester1'},
             {color: 'white', id: '2', name: 'tester2'}
         ];
-        const gates = createGates(size, nodes, players);
+        const gates = createGoals(size, nodes, players);
         const boosters = createFieldBoosters(size, nodes, gates);
         mockState = {
             gameState: {
@@ -23,7 +23,7 @@ describe('Possible moves selector tests', () => {
                 currentPlayer: 'tester1',
                 gameStatus: EGameStatus.Playing,
                 boosters,
-                gates: reduceToDictionary(gates, 'owner'),
+                goals: reduceToDictionary(gates, 'owner'),
                 path: [], ballNode: `${Math.floor(size.width / 2)},${Math.floor(size.height / 2)}`
             },
             fieldState: {nodes: reduceToDictionary(nodes, 'id')},

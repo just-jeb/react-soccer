@@ -12,14 +12,13 @@ export class GameComponent extends React.PureComponent<GameProps> {
         super(props);
     }
 
-    //TODO: use react-router to switch between screens
     render(): React.ReactNode {
-        return !this.props.gameId ? <div/> : (
-            <div>
+        return !this.props.gameId ? null : (
+            <>
                 <ScoreContainer/>
                 <FieldContainer/>
                 <button onClick={this.props.saveGame}>Save</button>
-            </div>
+            </>
         );
     }
 }

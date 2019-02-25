@@ -3,8 +3,7 @@ import {IPoint} from "./common.types";
 export enum EGameStatus {
     NotStarted,
     Playing,
-    EndWin,
-    EndTie
+    End,
 }
 
 export interface IPlayer {
@@ -12,8 +11,6 @@ export interface IPlayer {
     color: string;
     name: string;
 }
-
-export type TPlayers = {readonly [id: string]: IPlayer};
 
 export interface IGame {
     readonly id: string;
@@ -26,16 +23,14 @@ export interface IGame {
     //but later on we might need this info for drawing certain connections in different colors
     readonly path: TConnection[];
     readonly boosters: TBoosters;
-    readonly gates: TGates;
+    readonly goals: IGoal[];
     readonly winner?: string;
 }
 
-export interface IGate {
+export interface IGoal {
     readonly nodes: string[];
     readonly owner: string;
 }
-
-export type TGates = {readonly [player: string]: IGate};
 
 export type TConnection = [string, string];
 export type TBoosters = { readonly [nodeId: string]: boolean };
