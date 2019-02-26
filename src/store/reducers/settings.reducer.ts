@@ -6,12 +6,12 @@ import {EMetaGameActionsTypes, MetaGameActions} from "../actions/meta-game.actio
 const defaultGameSettings: IGameSettings = {fieldSize: {width: 15, height: 7}};
 
 export const gameSettings: Reducer<IGameSettings, SettingsActions | MetaGameActions> = (state = defaultGameSettings, action) => {
-    switch (action.type) {
-        case ESettingsActionsTypes.SET_GAME_FIELD_SIZE:
-            return {...state, size: action.payload};
-        case EMetaGameActionsTypes.LOAD_GAME:
-            return action.payload.settings;
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case ESettingsActionsTypes.SET_GAME_FIELD_SIZE:
+      return {...state, size: action.payload};
+    case EMetaGameActionsTypes.LOAD_GAME:
+      return action.payload.settings;
+    default:
+      return state;
+  }
 };

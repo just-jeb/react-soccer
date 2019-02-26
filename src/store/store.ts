@@ -8,18 +8,18 @@ import {gameState} from "./reducers/game.reducer";
 import {metaInfo} from "./reducers/meta-game.reducer";
 
 const composeEnhancers = composeWithDevTools({
-    //TODO: Redux devtools options here
+  //TODO: Redux devtools options here
 });
 
 
 //TODO: try Redux Observables and compare with Thunks
 export const store = createStore(combineReducers<IState>({
-        fieldState,
-        gameSettings,
-        gameState,
-        metaInfo
-    }),
-    composeEnhancers(
-        applyMiddleware<ThunkDispatch<IState, undefined, AnyAction>, IState>(thunk)
-    )
+    fieldState,
+    gameSettings,
+    gameState,
+    metaInfo
+  }),
+  composeEnhancers(
+    applyMiddleware<ThunkDispatch<IState, undefined, AnyAction>, IState>(thunk)
+  )
 );

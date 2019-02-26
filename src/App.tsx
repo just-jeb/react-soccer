@@ -10,27 +10,27 @@ import SavedGamesContainer from './SavedGames/SavedGames.container';
 import {MainMenuContainer} from "./MainMenu/MainMenu.container";
 
 class App extends Component {
-    render() {
-        return (
-            <BrowserRouter>
-                <Provider store={store}>
-                    <div className={styles.App}>
-                        <header className={styles.appHeader}>
-                            Soccer game
-                        </header>
-                        <CentralizerComponent>
-                            <Switch>
-                                <Route exact path={'/main-menu'} component={MainMenuContainer}/>
-                                <Route exact path={'/game/:id?'} component={GameContainer}/>
-                                <Route exact path={'/load-game'} component={SavedGamesContainer}/>
-                                <Redirect exact from={'/'} to={'main-menu'}/>
-                            </Switch>
-                        </CentralizerComponent>
-                    </div>
-                </Provider>
-            </BrowserRouter>
-        );
-    }
+  render() {
+    return (
+      <BrowserRouter>
+        <Provider store={store}>
+          <div className={styles.App}>
+            <header className={styles.appHeader}>
+              Soccer game
+            </header>
+            <CentralizerComponent>
+              <Switch>
+                <Route exact path={'/main-menu'} component={MainMenuContainer}/>
+                <Route exact path={'/game/:id?'} component={GameContainer}/>
+                <Route exact path={'/load-game'} component={SavedGamesContainer}/>
+                <Redirect exact from={'/'} to={'main-menu'}/>
+              </Switch>
+            </CentralizerComponent>
+          </div>
+        </Provider>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

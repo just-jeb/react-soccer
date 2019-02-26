@@ -6,14 +6,14 @@ import {ThunkDispatch} from "redux-thunk";
 import {fetchSavedGameHeaders, MetaGameActions} from "../store/actions/meta-game.actions";
 
 export const mapStateToProps = (state: IState) => ({
-    savedGames: savedGamesListSelector(state)
+  savedGames: savedGamesListSelector(state)
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<IState, any, MetaGameActions>) => ({
-    loadGamesList: () => dispatch(fetchSavedGameHeaders())
+  loadGamesList: () => dispatch(fetchSavedGameHeaders())
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(SavedGamesComponent);

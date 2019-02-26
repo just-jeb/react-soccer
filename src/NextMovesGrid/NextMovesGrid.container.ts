@@ -6,13 +6,13 @@ import {makeMove} from "../store/actions/game.actions";
 import {possibleMovesSelector} from "../store/selectors/field.selectors";
 
 const mapStateToProps = (state: IState) => ({
-    nextMoves: possibleMovesSelector(state),
-    hintColor: currentPlayerColorSelector(state)
+  nextMoves: possibleMovesSelector(state),
+  hintColor: currentPlayerColorSelector(state)
 });
 
 export default connect(
-    mapStateToProps,
-    {
-        makeMove
-    }
+  mapStateToProps,
+  {
+    makeMove
+  }
 )(NextMovesGridComponent);

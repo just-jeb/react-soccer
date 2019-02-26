@@ -3,23 +3,23 @@ import {ELocalStorageKeys, loadFromLocalStorage} from "../utils/local-storage.ut
 import {MainMenuComponent} from "./MainMenu.component";
 
 interface IState {
-    lastGameId?: string;
+  lastGameId?: string;
 }
 
 export class MainMenuContainer extends React.PureComponent<{}, IState> {
-    constructor(props: {}) {
-        super(props);
-        this.state = {};
-    }
+  constructor(props: {}) {
+    super(props);
+    this.state = {};
+  }
 
-    componentDidMount(): void {
-        this.setState({
-            lastGameId: loadFromLocalStorage(ELocalStorageKeys.LAST_GAME_ID)
-        })
-    }
+  componentDidMount(): void {
+    this.setState({
+      lastGameId: loadFromLocalStorage(ELocalStorageKeys.LAST_GAME_ID)
+    })
+  }
 
-    render(): React.ReactNode {
-        return <MainMenuComponent lastGameId={this.state.lastGameId}/>;
-    }
+  render(): React.ReactNode {
+    return <MainMenuComponent lastGameId={this.state.lastGameId}/>;
+  }
 
 }

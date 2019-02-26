@@ -9,18 +9,18 @@ export const currentPlayerSelector = ({gameState}: IState) => getCurrentPlayer(g
 export const playersSelector = ({gameState}: IState) => getPlayers(gameState);
 
 export const currentPlayerColorSelector = createSelector(
-    currentPlayerSelector,
-    playersSelector,
-    (currentPlayer, players) => {
-        const player = players.find(p => p.id === currentPlayer);
-        return (player && player.color) || 'black';
-    }
+  currentPlayerSelector,
+  playersSelector,
+  (currentPlayer, players) => {
+    const player = players.find(p => p.id === currentPlayer);
+    return (player && player.color) || 'black';
+  }
 );
 
 export const playerColorSelector = createSelector(
-    playersSelector,
-    players => memoize((playerId: string) => {
-        const player = players.find(p => p.id === playerId);
-        return (player && player.color) || 'black'
-    })
+  playersSelector,
+  players => memoize((playerId: string) => {
+    const player = players.find(p => p.id === playerId);
+    return (player && player.color) || 'black'
+  })
 );

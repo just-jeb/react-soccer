@@ -6,10 +6,10 @@ import {IGoal} from "../types/field.types";
 import {nodesByIdsSelector} from "../store/selectors/field.selectors";
 
 const mapStateToProps = (state: IState, props: { goal: IGoal }) => ({
-    goalNodes: nodesByIdsSelector(state)(props.goal.nodes),
-    goalColor: playerColorSelector(state)(props.goal.owner)
+  goalNodes: nodesByIdsSelector(state)(props.goal.nodes),
+  goalColor: playerColorSelector(state)(props.goal.owner)
 });
 
 export default connect(
-    mapStateToProps
+  mapStateToProps
 )(GoalComponent)

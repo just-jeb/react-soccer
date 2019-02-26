@@ -5,9 +5,9 @@ import {PathComponent} from "./Path.component";
 
 
 const mapStateToProps = (state: IState) => ({
-    pathCoords: pathCoordinatesSelector(state)
+  pathCoords: pathCoordinatesSelector(state)
 });
 
 export default connect(
-    mapStateToProps,
+  mapStateToProps,
 )(PathComponent);

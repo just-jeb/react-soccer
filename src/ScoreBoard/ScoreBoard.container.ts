@@ -4,10 +4,10 @@ import {connect} from "react-redux";
 import {ScoreBoardComponent} from "./ScoreBoard.component";
 
 const mapStateToProps = (state: IState) => ({
-    currentPlayer: currentPlayerSelector(state),
-    players: playersSelector(state)
+  currentPlayer: currentPlayerSelector(state),
+  players: playersSelector(state)
 });
 
 export default connect(
-    mapStateToProps
+  mapStateToProps
 )(ScoreBoardComponent);

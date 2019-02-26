@@ -5,15 +5,15 @@ import {gameSettingsSelector} from "../store/selectors/settings.selector";
 import {currentPlayerColorSelector} from "../store/selectors/game.selectors";
 
 const mapStateToProps = (state: IState) => {
-    return {
-        fieldSize: gameSettingsSelector(state).fieldSize,
-        bordersColor: currentPlayerColorSelector(state)
-    }
+  return {
+    fieldSize: gameSettingsSelector(state).fieldSize,
+    bordersColor: currentPlayerColorSelector(state)
+  }
 };
 
 const mapDispatchToProps = {};
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(FieldComponent);
