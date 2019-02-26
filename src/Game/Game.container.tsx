@@ -5,6 +5,8 @@ import {GameComponent} from "./Game.component";
 import {gameIdSelector} from "../store/selectors/game.selectors";
 import {loadGame, saveGame, startNewGame} from "../store/actions/meta-game.actions";
 import {RouteComponentProps} from "react-router";
+import {store} from "../store/store";
+import {ELocalStorageKeys, saveToLocalStorage} from "../utils/local-storage.utils";
 
 interface Props extends RouteComponentProps<{ id: string }> {
     loadGame: (id: string) => void,
@@ -12,7 +14,14 @@ interface Props extends RouteComponentProps<{ id: string }> {
     saveGame: () => void,
     gameId: string
 }
-//TODO: save current game state in local storage on each turn (not saved games - separate entry)
+
+const persistCurrentGame = () => {
+    const {fieldState, gameState, gameSettings} = store.getState();
+    const gameToSave = {field: fieldState, game: gameState, settings: gameSettings};
+    saveToLocalStorage( gameToSave, ELocalStorageKeys.LAST_GAME);
+    saveToLocalStorage( gameState.id, ELocalStorageKeys.LAST_GAME_ID);
+};
+
 class GameContainer extends React.PureComponent<Props> {
     componentDidMount(): void {
         const {match: {params: {id}}, loadGame, startNewGame} = this.props;
@@ -21,6 +30,7 @@ class GameContainer extends React.PureComponent<Props> {
         } else {
             startNewGame();
         }
+        store.subscribe(() => persistCurrentGame())
     }
 
     componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<{}>, snapshot?: any): void {

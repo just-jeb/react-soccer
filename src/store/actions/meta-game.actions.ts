@@ -1,14 +1,13 @@
 import {createAction} from "./utils";
 import {ActionsUnion, ReactSoccerThunkAction} from "./types";
-import {ISavedGame, TSavedGamesHeaders} from "../../types/meta-game.types";
+import {ISavedGame, ISavedGameHeader} from "../../types/meta-game.types";
 import {extractSavedGameHeader} from "../../utils/meta-game.utils";
 import {gameSettingsSelector} from "../selectors/settings.selector";
 import {createFieldBoosters, createGoals, createNodes} from "../../utils/game.utils";
 import {IPlayer} from "../../types/game.types";
-import {GameActions} from "./game.actions";
 import {IGoal, INode, TBoosters} from "../../types/field.types";
-
-const LOCAL_STORAGE_KEY = 'react-soccer-saves';
+import {ELocalStorageKeys, loadFromLocalStorage, saveToLocalStorage} from "../../utils/local-storage.utils";
+import {Dictionary} from "../../types/common.types";
 
 export const startNewGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
     const fieldSize = gameSettingsSelector(getState()).fieldSize;
@@ -21,33 +20,39 @@ export const startNewGame: () => ReactSoccerThunkAction = () => (dispatch, getSt
     dispatch(MetaGameActions.startNewGame(startNodeId, defaultBoosters, gates, players, nodes));
 };
 
-export const loadGame: (id: string) => ReactSoccerThunkAction = id => (dispatch, getState) => {
-    const savedGamesString = localStorage.getItem(LOCAL_STORAGE_KEY);
-    const savedGames: { [id: string]: ISavedGame } = savedGamesString && JSON.parse(savedGamesString) || {};
-    const gameState = savedGames[id];
-
-    dispatch(MetaGameActions.loadGame(gameState));
+export const loadGame: (id: string) => ReactSoccerThunkAction = id => (dispatch) => {
+    let gameState;
+    const lastGameId = loadFromLocalStorage<string>(ELocalStorageKeys.LAST_GAME_ID);
+    if(lastGameId && lastGameId === id){
+        gameState = loadFromLocalStorage<ISavedGame>(ELocalStorageKeys.LAST_GAME);
+    } else {
+        const saves = loadFromLocalStorage<Dictionary<ISavedGame>>(ELocalStorageKeys.SAVES);
+        gameState = saves && saves[id];
+    }
+    if(gameState) {
+        dispatch(MetaGameActions.loadGame(gameState));
+    }
 };
 
 export const saveGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
     const {fieldState, gameState, gameSettings} = getState();
-    const savedGamesString = localStorage.getItem(LOCAL_STORAGE_KEY);
-    const savedGames: { [id: string]: ISavedGame } = savedGamesString && JSON.parse(savedGamesString) || {};
     const gameToSave = {field: fieldState, game: gameState, settings: gameSettings, date: new Date().toLocaleString()};
-    savedGames[gameState.id] = gameToSave;
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(savedGames));
+    const saves = loadFromLocalStorage<Dictionary<ISavedGame>>(ELocalStorageKeys.SAVES) || {};
+    saves[gameState.id] = gameToSave;
+    saveToLocalStorage(saves, ELocalStorageKeys.SAVES);
     dispatch(MetaGameActions.saveGame(gameToSave))
 };
 
-export const fetchSavedGameHeaders: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
-    const savedGamesString = localStorage.getItem(LOCAL_STORAGE_KEY);
-    const savedGames: { [id: string]: ISavedGame } = savedGamesString && JSON.parse(savedGamesString) || {};
-    const savedGamesHeaders = Object.keys(savedGames).reduce<TSavedGamesHeaders>((acc, key) => {
-        const header = extractSavedGameHeader(savedGames[key]);
-        acc[header.id] = header;
-        return acc;
-    }, {});
-    dispatch(MetaGameActions.setSavedGamesHeaders(savedGamesHeaders));
+export const fetchSavedGameHeaders: () => ReactSoccerThunkAction = () => (dispatch) => {
+    const savedGames = loadFromLocalStorage<Dictionary<ISavedGame>>(ELocalStorageKeys.SAVES);
+    if(savedGames) {
+        const savedGamesHeaders = Object.keys(savedGames).reduce<Dictionary<ISavedGameHeader>>((acc, key) => {
+            const header = extractSavedGameHeader(savedGames[key]);
+            acc[header.id] = header;
+            return acc;
+        }, {});
+        dispatch(MetaGameActions.setSavedGamesHeaders(savedGamesHeaders));
+    }
 };
 
 export enum EMetaGameActionsTypes {
@@ -62,7 +67,7 @@ export const MetaGameActions = {
         createAction(EMetaGameActionsTypes.START_GAME, {startNodeId, defaultBoosters, goals, players, nodes}),
     loadGame: (game: ISavedGame) => createAction(EMetaGameActionsTypes.LOAD_GAME, game),
     saveGame: (game: ISavedGame) => createAction(EMetaGameActionsTypes.SAVE_GAME, game),
-    setSavedGamesHeaders: (headers: TSavedGamesHeaders) =>
+    setSavedGamesHeaders: (headers: Dictionary<ISavedGameHeader>) =>
         createAction(EMetaGameActionsTypes.SET_SAVED_GAMES_HEADERS, headers)
 };
 

@@ -7,11 +7,9 @@ import {CentralizerComponent} from "./Centralizer/Centralizer.component";
 import {Redirect, Route, Switch} from "react-router";
 import {BrowserRouter} from "react-router-dom";
 import SavedGamesContainer from './SavedGames/SavedGames.container';
-import {MainMenuComponent} from "./MainMenu/MainMenu.component";
+import {MainMenuContainer} from "./MainMenu/MainMenu.container";
 
 class App extends Component {
-
-
     render() {
         return (
             <BrowserRouter>
@@ -22,7 +20,7 @@ class App extends Component {
                         </header>
                         <CentralizerComponent>
                             <Switch>
-                                <Route exact path={'/main-menu'} component={MainMenuComponent}/>
+                                <Route exact path={'/main-menu'} component={MainMenuContainer}/>
                                 <Route exact path={'/game/:id?'} component={GameContainer}/>
                                 <Route exact path={'/load-game'} component={SavedGamesContainer}/>
                                 <Redirect exact from={'/'} to={'main-menu'}/>
