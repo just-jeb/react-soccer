@@ -6,7 +6,10 @@ module.exports = function(wallaby) {
   require('module').Module._initPaths();
 
   return {
-    files: [{ pattern: 'src/setupTests.ts', instrument: false }, 'src/**/*.+(ts|tsx|jsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)', '!src/**/*.+(test|spec).ts?(x)'],
+    files: [{ pattern: 'src/setupTests.ts', instrument: false },
+      '+(src|test)/**/*.+(ts|tsx|jsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
+      '!+(src|test)/**/*.+(test|spec).ts?(x)'
+    ],
 
     tests: ['src/**/*.+(test|spec).ts?(x)'],
 
