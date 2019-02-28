@@ -2,7 +2,7 @@ import {IState} from "../store/state";
 import {currentPlayerColorSelector} from "../store/selectors/game.selectors";
 import {connect} from "react-redux";
 import {NextMovesGridComponent} from "./NextMovesGrid.component";
-import {makeMove} from "../store/actions/game.actions";
+import {makeMove} from "../store/thunks/game.thunks";
 import {possibleMovesSelector} from "../store/selectors/field.selectors";
 
 const mapStateToProps = (state: IState) => ({

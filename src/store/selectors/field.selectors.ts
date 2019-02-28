@@ -1,12 +1,12 @@
 import {IState} from "../state";
 import {createSelector, defaultMemoize as memoize} from "reselect";
-import {TConnectionCoords} from "../../types/field.types";
+import {TConnectionCoords} from '../../types';
 import {getBallNode, getBoosters, getGoals, getNodes, getPath} from "../reducers/field.reducer";
 import {gameSettingsSelector} from "./settings.selector";
-import {EGameStatus} from "../../types/game.types";
+import {EGameStatus} from '../../types';
 import {getNeighbors, isMiddle, isXEdge, isYEdge} from "../../utils/field.utils";
 import {nodesConnected} from "../../utils/game.utils";
-import {IPoint} from "../../types/common.types";
+import {IPoint} from '../../types';
 import {gameStatusSelector} from "./game.selectors";
 
 export const nodesSelector = ({fieldState}: IState) => getNodes(fieldState);
@@ -20,7 +20,9 @@ export const ballNodeSelector = (state: IState) => getBallNode(state.fieldState)
 export const ballPositionSelector = createSelector(
   ballNodeSelector,
   nodesSelector,
-  (ballNodeId, nodes) => nodes[ballNodeId].coordinates
+  (ballNodeId, nodes) => {
+    return nodes[ballNodeId].coordinates
+  }
 );
 export const nodesByIdsSelector = createSelector(
   nodesSelector,

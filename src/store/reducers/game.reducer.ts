@@ -1,5 +1,5 @@
 import {Reducer} from "redux";
-import {EGameStatus, IGame} from "../../types/game.types";
+import {EGameStatus, IGame} from '../../types';
 import {EGameActionsTypes, GameActions} from "../actions/game.actions";
 import {uuid} from "../../utils/common.utils";
 import {EMetaGameActionsTypes, MetaGameActions} from "../actions/meta-game.actions";

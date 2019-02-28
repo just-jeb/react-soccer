@@ -3,7 +3,8 @@ import {savedGamesListSelector} from "../store/selectors/meta-info.selectors";
 import {connect} from "react-redux";
 import {SavedGamesComponent} from "./SavedGames.component";
 import {ThunkDispatch} from "redux-thunk";
-import {fetchSavedGameHeaders, MetaGameActions} from "../store/actions/meta-game.actions";
+import {MetaGameActions} from "../store/actions/meta-game.actions";
+import {fetchSavedGameHeaders} from '../store/thunks/meta-game.thunks';
 
 export const mapStateToProps = (state: IState) => ({
   savedGames: savedGamesListSelector(state)

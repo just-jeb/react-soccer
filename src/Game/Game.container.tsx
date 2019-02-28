@@ -1,18 +1,18 @@
 import React from 'react';
-import {IState} from "../store/state";
-import {connect} from "react-redux";
-import {GameComponent} from "./Game.component";
-import {gameIdSelector} from "../store/selectors/game.selectors";
-import {loadGame, saveGame, startNewGame} from "../store/actions/meta-game.actions";
-import {RouteComponentProps} from "react-router";
-import {store} from "../store/store";
-import {ELocalStorageKeys, saveToLocalStorage} from "../utils/local-storage.utils";
+import {IState} from '../store/state';
+import {connect} from 'react-redux';
+import {GameComponent} from './Game.component';
+import {gameIdSelector} from '../store/selectors/game.selectors';
+import {loadGame, saveGame, startNewGame} from '../store/thunks/meta-game.thunks';
+import {RouteComponentProps} from 'react-router';
+import {store} from '../store/store';
+import {ELocalStorageKeys, saveToLocalStorage} from '../utils/local-storage.utils';
 
-interface Props extends RouteComponentProps<{ id: string }> {
+export interface IProps extends RouteComponentProps<{ id?: string }> {
   loadGame: (id: string) => void,
   startNewGame: () => void,
   saveGame: () => void,
-  gameId: string
+  gameId?: string
 }
 
 const persistCurrentGame = () => {
@@ -22,7 +22,7 @@ const persistCurrentGame = () => {
   saveToLocalStorage(gameState.id, ELocalStorageKeys.LAST_GAME_ID);
 };
 
-class GameContainer extends React.PureComponent<Props> {
+export class GameContainer extends React.PureComponent<IProps> {
   componentDidMount(): void {
     const {match: {params: {id}}, loadGame, startNewGame} = this.props;
     if (id) {
@@ -33,7 +33,7 @@ class GameContainer extends React.PureComponent<Props> {
     store.subscribe(() => persistCurrentGame())
   }
 
-  componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<{}>, snapshot?: any): void {
+  componentDidUpdate(prevProps: Readonly<IProps>, prevState: Readonly<{}>, snapshot?: any): void {
     const {gameId, match: {params: {id}}, location: {pathname}, history} = this.props;
     if (gameId && !id) {
       history.replace(`${pathname}/${gameId}`);
@@ -41,17 +41,11 @@ class GameContainer extends React.PureComponent<Props> {
   }
 
   render() {
-    if (!this.props.gameId) {
+    const {gameId, saveGame} = this.props;
+    if (!gameId) {
       return null;
-    } else if (!this.props.match.params.id) {
-
     }
-    return (
-      <>
-        <GameComponent/>
-        <button onClick={this.props.saveGame}>Save</button>
-      </>
-    )
+    return <GameComponent saveGame={saveGame}/>;
   }
 }
 
@@ -60,7 +54,7 @@ const mapStateToProps = (state: IState) => ({
   gameId: gameIdSelector(state)
 });
 
-export default connect(
+export const ConnectedGameContainer = connect(
   mapStateToProps,
   {saveGame, loadGame, startNewGame}
 )(GameContainer);
