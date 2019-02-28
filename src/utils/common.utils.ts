@@ -1,4 +1,4 @@
-import {IPoint} from "../types/common.types";
+import {IPoint} from '../types';
 
 export const stringifyPoint = ({x, y}: IPoint) => `${x},${y}`;
 

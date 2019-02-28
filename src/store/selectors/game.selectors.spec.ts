@@ -1,7 +1,7 @@
 import {IState} from "../state";
 import {createFieldBoosters, createGoals, createNodes} from "../../utils/game.utils";
-import {IDimensions} from "../../types/common.types";
-import {EGameStatus, IPlayer} from "../../types/game.types";
+import {IDimensions} from '../../types';
+import {EGameStatus, IPlayer} from '../../types';
 import {reduceToDictionary} from "../../utils/common.utils";
 import {possibleMovesSelector} from "./field.selectors";
 
@@ -19,16 +19,23 @@ describe('Possible moves selector tests', () => {
     const boosters = createFieldBoosters(size, nodes, gates);
     mockState = {
       gameState: {
+        id: '',
         players,
         currentPlayer: 'tester1',
         gameStatus: EGameStatus.Playing,
-        boosters,
-        goals: reduceToDictionary(gates, 'owner'),
-        path: [], ballNode: `${Math.floor(size.width / 2)},${Math.floor(size.height / 2)}`
       },
-      fieldState: {nodes: reduceToDictionary(nodes, 'id')},
+      fieldState: {
+        nodes: reduceToDictionary(nodes, 'id'),
+        boosters,
+        goals: gates,
+        path: [],
+        ballNode: `${Math.floor(size.width / 2)},${Math.floor(size.height / 2)}`
+      },
       gameSettings: {
         fieldSize: {width: 7, height: 5}
+      },
+      metaInfo: {
+        savedGames: {}
       }
     }
   });
@@ -36,13 +43,13 @@ describe('Possible moves selector tests', () => {
   it('Should provide a possible move to an adjacent edge when in corner', () => {
     const nextMovesXEdge = possibleMovesSelector({
       ...mockState,
-      gameState: {...mockState.gameState, ballNode: '0,1'}
+      fieldState: {...mockState.fieldState, ballNode: '0,1'}
     });
     expect(nextMovesXEdge).toContainEqual(expect.objectContaining({coordinates: {x: 1, y: 0}}));
 
     const nextMovesYEdge = possibleMovesSelector({
       ...mockState,
-      gameState: {...mockState.gameState, ballNode: '1,0'}
+      fieldState: {...mockState.fieldState, ballNode: '1,0'}
     });
     expect(nextMovesYEdge).toContainEqual(expect.objectContaining({coordinates: {x: 0, y: 1}}));
   });

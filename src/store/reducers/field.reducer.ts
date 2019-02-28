@@ -1,5 +1,5 @@
 import {Reducer} from "redux";
-import {IField, TConnection} from "../../types/field.types";
+import {IField, TConnection} from '../../types';
 import {reduceToDictionary} from "../../utils/common.utils";
 import {EMetaGameActionsTypes, MetaGameActions} from "../actions/meta-game.actions";
 import {EFieldActionsTypes, FieldActions} from "../actions/field.actions";

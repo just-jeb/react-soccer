@@ -1,18 +1,18 @@
 import {createAction} from "./utils";
 import {ActionsUnion, ReactSoccerThunkAction} from "./types";
-import {ISavedGame, ISavedGameHeader} from "../../types/meta-game.types";
+import {ISavedGame, ISavedGameHeader} from '../../types';
 import {extractSavedGameHeader} from "../../utils/meta-game.utils";
 import {gameSettingsSelector} from "../selectors/settings.selector";
 import {createFieldBoosters, createGoals, createNodes} from "../../utils/game.utils";
-import {IPlayer} from "../../types/game.types";
-import {IGoal, INode, TBoosters} from "../../types/field.types";
+import {IPlayer} from '../../types';
+import {IGoal, INode, TBoosters} from '../../types';
 import {ELocalStorageKeys, loadFromLocalStorage, saveToLocalStorage} from "../../utils/local-storage.utils";
-import {Dictionary} from "../../types/common.types";
+import {Dictionary} from '../../types';
 
 export const startNewGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
   const fieldSize = gameSettingsSelector(getState()).fieldSize;
   const nodes = createNodes(fieldSize);
-  const players: IPlayer[] = [{id: '1', name: 'Jenia', color: 'purple'}, {id: '2', name: 'Eyal', color: 'orange'}];
+  const players: IPlayer[] = [{id: '1', name: 'Dima', color: 'teal'}, {id: '2', name: 'Jenia', color: 'red'}];
   const gates = createGoals(fieldSize, nodes, players);
   const defaultBoosters = createFieldBoosters(fieldSize, nodes, gates);
   const startNodeId = nodes[Math.floor(nodes.length / 2)].id;
