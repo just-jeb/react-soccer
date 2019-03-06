@@ -50,7 +50,7 @@ export class GameContainer extends React.PureComponent<IProps> {
 }
 
 
-const mapStateToProps = (state: IState) => ({
+export const mapStateToProps = (state: IState) => ({
   gameId: gameIdSelector(state)
 });
 

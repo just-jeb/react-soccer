@@ -1,13 +1,5 @@
 import React from 'react';
 import {shallow, ShallowWrapper} from 'enzyme';
-// jest.mock('../ScoreBoard/ScoreBoard.container', () => ({
-//   __esModule: true,
-//   namedExport: jest.fn()
-// }));
-// jest.mock('../Field/Field.container',() => ({
-//   __esModule: true,
-//   namedExport: jest.fn()
-// }));
 import {GameComponent} from './Game.component';
 import {byDataHook} from '../../test/utils/selector.utils';
 
