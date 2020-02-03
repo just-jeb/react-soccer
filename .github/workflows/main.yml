@@ -17,6 +17,8 @@ jobs:
     - name: Build
       run: yarn build
     - name: Test
+      env:
+        CI: true
       run: yarn test
     - name: Deploy
       uses: crazy-max/ghaction-github-pages@v1
