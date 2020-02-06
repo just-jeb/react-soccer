@@ -25,6 +25,4 @@ jobs:
       with:
         publish_branch: gh-pages
         publish_dir: ./build
-      env:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
-    
