@@ -16,6 +16,8 @@ jobs:
       run: yarn
     - name: Build
       run: yarn build
+      env:
+        BASE_URL: react-soccer
     - name: Test
       env:
         CI: true

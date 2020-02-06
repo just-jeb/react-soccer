@@ -12,7 +12,7 @@ import {MainMenuContainer} from './MainMenu/MainMenu.container';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.BASE_URL}>
         <Provider store={store}>
           <div className={styles.App}>
             <header className={styles.appHeader}>
