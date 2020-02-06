@@ -15,6 +15,6 @@ export interface IGame {
   readonly players: IPlayer[]
   readonly currentPlayer: string,
   readonly gameStatus: EGameStatus,
-  readonly winner?: string;
+  readonly looser?: string | null;
 }
 

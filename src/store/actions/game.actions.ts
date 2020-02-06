@@ -1,16 +1,13 @@
-import {ActionsUnion} from './types';
-import {createAction} from './utils';
-import {EGameStatus} from '../../types';
-
+import { ActionsUnion } from './types';
+import { createAction } from './utils';
 
 export enum EGameActionsTypes {
   UPDATE_GAME_STATE = '[game] MAKE_MOVE'
 }
 
-
 export const GameActions = {
-  updateGameState: (gameStatus: EGameStatus, currentPlayer: string) =>
-    createAction(EGameActionsTypes.UPDATE_GAME_STATE, {gameStatus, currentPlayer}),
+  updateGameState: (looser: string | null, currentPlayer: string) =>
+    createAction(EGameActionsTypes.UPDATE_GAME_STATE, { looser, currentPlayer }),
 };
 
 

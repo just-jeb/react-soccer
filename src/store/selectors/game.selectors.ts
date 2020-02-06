@@ -1,12 +1,14 @@
 import {IState} from "../state";
 import {createSelector, defaultMemoize as memoize} from "reselect";
-import {getCurrentPlayer, getGameId, getGameStatus, getPlayers} from "../reducers/game.reducer";
+import {getCurrentPlayer, getGameId, getGameStatus, getLooser, getPlayers} from '../reducers/game.reducer';
 
 export const gameStatusSelector = ({gameState}: IState) => getGameStatus(gameState);
 export const gameIdSelector = ({gameState}: IState) => getGameId(gameState);
 export const currentPlayerSelector = ({gameState}: IState) => getCurrentPlayer(gameState);
 
 export const playersSelector = ({gameState}: IState) => getPlayers(gameState);
+
+export const looserSelector = ({gameState}: IState) => getLooser(gameState);
 
 export const currentPlayerColorSelector = createSelector(
   currentPlayerSelector,

@@ -15,9 +15,9 @@ export const getCurrentPlayer = ({currentPlayer}: IGame) => currentPlayer;
 export const getGameStatus = ({gameStatus}: IGame) => gameStatus;
 export const getPlayers = ({players}: IGame) => players;
 export const getGameId = ({id}: IGame) => id;
+export const getLooser = ({looser}: IGame) => looser;
 
-
-export const gameState: Reducer<IGame, GameActions | MetaGameActions> = (state = defaultGameState, action) => {
+export const gameState: Reducer<IGame, GameActions | MetaGameActions> = (state = defaultGameState, action): IGame => {
   switch (action.type) {
     case EMetaGameActionsTypes.START_GAME:
       const {players} = action.payload;
@@ -30,16 +30,16 @@ export const gameState: Reducer<IGame, GameActions | MetaGameActions> = (state =
     case EMetaGameActionsTypes.LOAD_GAME:
       return action.payload.game;
     case EGameActionsTypes.UPDATE_GAME_STATE:
-      const {gameStatus, currentPlayer} = action.payload;
-      const {currentPlayer: previousPlayer} = state;
+      const {looser, currentPlayer} = action.payload;
+      const {gameStatus: currentGameStatus} = state;
 
-      //TODO: win case for the second player when no moves left for the current one
-      const winner = gameStatus === EGameStatus.End ? previousPlayer : undefined;
+      const gameStatus = looser ? EGameStatus.End : currentGameStatus;
+
       return {
         ...state,
         currentPlayer,
         gameStatus,
-        winner
+        looser
       };
     default:
       return state;

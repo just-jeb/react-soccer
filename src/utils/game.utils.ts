@@ -1,15 +1,15 @@
-import {EGameStatus, IPlayer} from "../types/game.types";
-import {IGoal, INode, TBoosters, TConnection} from "../types/field.types";
-import {IDimensions} from "../types/common.types";
-import {stringifyPoint} from "./common.utils";
-import {isEdge, isMiddle} from "./field.utils";
+import { IPlayer } from "../types/game.types";
+import { IGoal, INode, TBoosters, TConnection } from "../types/field.types";
+import { IDimensions } from "../types/common.types";
+import { stringifyPoint } from "./common.utils";
+import { isEdge, isMiddle } from "./field.utils";
 
 export const nodesConnected = (node1: INode, node2: INode, path: TConnection[]) => {
   return path.some(([id1, id2]) => (id1 === node1.id && id2 === node2.id)
     || (id1 === node2.id && id2 === node1.id))
 };
 
-//TODO: use type of updateGameState action payload instead of newBallNode and string
+// TODO: use type of updateGameState action payload instead of newBallNode and string
 export const determineNextPlayer = (boosters: TBoosters, currentPlayer: string, players: IPlayer[], newBallNode: string): string => {
   if (!boosters[newBallNode]) {
     const i = players.findIndex(p => p.id === currentPlayer);
@@ -20,18 +20,19 @@ export const determineNextPlayer = (boosters: TBoosters, currentPlayer: string, 
   }
 };
 
-export const determineGameStatus = (goals: IGoal[], gameStatus: EGameStatus, newBallNode: string): EGameStatus => {
-  const capturedGoal = Object.values(goals).find(g => g.nodes.includes(newBallNode));
+export const determineLooser = (goals: IGoal[], nextMoves: INode[], ballNode: string, currentPlayer: string): string | null => {
+  const capturedGoal = Object.values(goals).find(g => g.nodes.includes(ballNode));
   if (capturedGoal) {
-    return EGameStatus.End;
-  } else {
-    return gameStatus;
+    return capturedGoal.owner;
+  } else if (nextMoves.length === 0) {
+    return currentPlayer;
   }
+  return null;
 };
 
-export const createNodes = ({width, height}: IDimensions): INode[] => {
+export const createNodes = ({ width, height }: IDimensions): INode[] => {
   return Array(width * height).fill(null).map((node, index) => {
-    const coordinates = {x: (index % width), y: Math.floor(index / width)};
+    const coordinates = { x: (index % width), y: Math.floor(index / width) };
     const id = stringifyPoint(coordinates);
     return {
       id,
@@ -40,7 +41,7 @@ export const createNodes = ({width, height}: IDimensions): INode[] => {
   });
 };
 
-export const createGoals = ({width, height}: IDimensions, nodes: INode[], [p1, p2]: IPlayer[]): IGoal[] => {
+export const createGoals = ({ width, height }: IDimensions, nodes: INode[], [p1, p2]: IPlayer[]): IGoal[] => {
   const midY = Math.floor(height / 2);
   const gatesYCoord = [midY - 1, midY, midY + 1];
   const mapGatesYCoordsToNodes = (transformFunction: (y: number) => number) =>
@@ -62,6 +63,6 @@ export const createFieldBoosters = (fieldSize: IDimensions, nodes: INode[], gate
   return nodes.reduce<TBoosters>((boosters, node) => {
     const isBooster = !gates.some(g => g.nodes.includes(node.id)) &&
       (isEdge(fieldSize)(node.coordinates) || isMiddle(fieldSize)(node.coordinates));
-    return {...boosters, [node.id]: isBooster};
+    return { ...boosters, [node.id]: isBooster };
   }, {});
 };

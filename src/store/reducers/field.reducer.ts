@@ -31,14 +31,16 @@ export const fieldState: Reducer<IField, FieldActions | MetaGameActions> = (stat
         nodes: reduceToDictionary(nodes, 'id')
       };
     case EFieldActionsTypes.MOVE_BALL:
+      console.log('MOve ball reducers')
       const {nodeId} = action.payload;
       const {ballNode, path, boosters} = state;
       const connection: TConnection = [ballNode, nodeId];
+      console.log('Ball node inside reducer', nodeId)
       return {
         ...state,
         ballNode: nodeId,
         path: [...path, connection],
-        boosters: {...boosters, [nodeId]: true},
+        boosters: {...boosters, [ballNode]: true},
       };
     case EMetaGameActionsTypes.LOAD_GAME:
       return action.payload.field;

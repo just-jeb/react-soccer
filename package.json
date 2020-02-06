@@ -44,6 +44,8 @@
     "@types/lodash": "^4.14.121",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "tslint": "^6.0.0",
+    "tslint-react": "^4.2.0"
   }
 }

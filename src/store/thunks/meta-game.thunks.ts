@@ -9,7 +9,7 @@ import {MetaGameActions} from '../actions/meta-game.actions';
 export const startNewGame: () => ReactSoccerThunkAction = () => (dispatch, getState) => {
   const fieldSize = gameSettingsSelector(getState()).fieldSize;
   const nodes = createNodes(fieldSize);
-  const players: IPlayer[] = [{id: '1', name: 'Dima', color: 'teal'}, {id: '2', name: 'Jenia', color: 'red'}];
+  const players: IPlayer[] = [{id: '1', name: 'Sir Gay', color: 'pink'}, {id: '2', name: 'Jenia', color: 'yellow'}];
   const gates = createGoals(fieldSize, nodes, players);
   const defaultBoosters = createFieldBoosters(fieldSize, nodes, gates);
   const startNodeId = nodes[Math.floor(nodes.length / 2)].id;
