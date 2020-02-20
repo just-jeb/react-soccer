@@ -1,7 +1,19 @@
 {
-  "extends": ["tslint:recommended" ,"tslint-react"],
+  "rulesDirectory": [
+    "tslint-plugin-prettier"
+  ],
+
+  "extends": [
+    "tslint-config-prettier", "tslint-react"
+  ],
+
   "rules": {
-    "jsx-no-multiline-js": false,
-    "jsx-boolean-value": false
+    "prettier": {
+      "severity": "warning",
+      "options": {
+        "singleQuote": true,
+        "trailingComma": "all"
+      }
+    }
   }
 }
