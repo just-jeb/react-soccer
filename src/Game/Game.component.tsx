@@ -3,13 +3,15 @@ import ScoreContainer from '../ScoreBoard/ScoreBoard.container';
 import FieldContainer from '../Field/Field.container';
 
 interface IProps {
-  saveGame: () => void
+  saveGame: () => void;
 }
 
-export const GameComponent = ({saveGame}: IProps) => (
+export const GameComponent = ({ saveGame }: IProps) => (
   <>
-    <ScoreContainer/>
-    <FieldContainer/>
-    <button data-hook='save' onClick={saveGame}>Save</button>
+    <ScoreContainer />
+    <FieldContainer />
+    <button data-hook="save" onClick={saveGame}>
+      Save
+    </button>
   </>
 );

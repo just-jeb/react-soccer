@@ -1,7 +1,7 @@
-import {IGame, IPlayer} from "./game.types";
-import {IField} from "./field.types";
-import {IGameSettings} from "./settings.types";
-import {Dictionary} from "./common.types";
+import { IGame, IPlayer } from './game.types';
+import { IField } from './field.types';
+import { IGameSettings } from './settings.types';
+import { Dictionary } from './common.types';
 
 export interface ISavedGame {
   readonly date: string;

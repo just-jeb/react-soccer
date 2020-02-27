@@ -3,7 +3,7 @@ export const APP_ID = 'react-soccer';
 export enum ELocalStorageKeys {
   SAVES = 'saves',
   LAST_GAME = 'last-game',
-  LAST_GAME_ID = 'last-game-id'
+  LAST_GAME_ID = 'last-game-id',
 }
 
 const getKey = (prefix: string, key: string) => `${prefix}.${key}`;

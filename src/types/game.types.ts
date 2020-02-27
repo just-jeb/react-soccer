@@ -12,9 +12,8 @@ export interface IPlayer {
 
 export interface IGame {
   readonly id: string;
-  readonly players: IPlayer[]
-  readonly currentPlayer: string,
-  readonly gameStatus: EGameStatus,
+  readonly players: IPlayer[];
+  readonly currentPlayer: string;
+  readonly gameStatus: EGameStatus;
   readonly looser?: string | null;
 }
-
