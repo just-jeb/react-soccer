@@ -21,8 +21,7 @@
     "react-scripts": "3.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "typescript": "^3.7.5"
+    "reselect": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,6 +47,7 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.1.0",
     "tslint-react": "^4.2.0",
+    "typescript": "^3.8.2",
     "typescript-tslint-plugin": "^0.5.5"
   }
 }
