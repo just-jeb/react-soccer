@@ -2,7 +2,6 @@
   "name": "react-soccer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://just-jeb.github.io/react-soccer",
   "dependencies": {
     "@types/classnames": "^2.2.7",
     "@types/jest": "26.0.4",
