@@ -7,20 +7,20 @@ import {
   possibleMovesSelector,
 } from '../selectors/field.selectors';
 import {
-  currentPlayerSelector,
+  currentPlayerIdSelector,
   playersSelector,
 } from '../selectors/game.selectors';
 import { FieldActions } from '../actions/field.actions';
 import { GameActions } from '../actions/game.actions';
 
-export const makeMove: (
-  newBallNode: string,
-) => ReactSoccerThunkAction = newBallNode => (dispatch, getState) => {
+export const makeMove: (newBallNode: string) => ReactSoccerThunkAction = (
+  newBallNode,
+) => (dispatch, getState) => {
   dispatch(FieldActions.moveBall(newBallNode));
 
   //TODO: if no moves left the player can kick the ball out up to 5 (or whatever) nodes
   const state = getState();
-  const currentPlayer = currentPlayerSelector(state);
+  const currentPlayer = currentPlayerIdSelector(state);
   const currentBallNode = ballNodeSelector(state);
 
   let nextPlayer = determineNextPlayer(

@@ -6,5 +6,5 @@ export const savedGamesSelector = (state: IState) =>
   metaInfoSelector(state).savedGames;
 export const savedGamesListSelector = createSelector(
   savedGamesSelector,
-  savedGames => Object.values(savedGames),
+  (savedGames) => Object.values(savedGames),
 );

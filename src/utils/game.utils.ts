@@ -24,7 +24,7 @@ export const determineNextPlayer = (
   newBallNode: string,
 ): string => {
   if (!boosters[newBallNode]) {
-    const i = players.findIndex(p => p.id === currentPlayer);
+    const i = players.findIndex((p) => p.id === currentPlayer);
     const nextIndex = (i + 1) % players.length;
     return players[nextIndex].id;
   } else {
@@ -38,7 +38,7 @@ export const determineLooser = (
   ballNode: string,
   currentPlayer: string,
 ): string | null => {
-  const capturedGoal = Object.values(goals).find(g =>
+  const capturedGoal = Object.values(goals).find((g) =>
     g.nodes.includes(ballNode),
   );
   if (capturedGoal) {
@@ -53,7 +53,10 @@ export const createNodes = ({ width, height }: IDimensions): INode[] => {
   return Array(width * height)
     .fill(null)
     .map((node, index) => {
-      const coordinates = { x: index % width, y: Math.floor(index / width) };
+      const coordinates = {
+        x: index % width,
+        y: Math.floor(index / width),
+      };
       const id = stringifyPoint(coordinates);
       return {
         id,
@@ -70,16 +73,16 @@ export const createGoals = (
   const midY = Math.floor(height / 2);
   const gatesYCoord = [midY - 1, midY, midY + 1];
   const mapGatesYCoordsToNodes = (transformFunction: (y: number) => number) =>
-    gatesYCoord.map(transformFunction).map(i => nodes[i].id);
+    gatesYCoord.map(transformFunction).map((i) => nodes[i].id);
 
   return [
     {
       owner: p1.id,
-      nodes: mapGatesYCoordsToNodes(y => y * width),
+      nodes: mapGatesYCoordsToNodes((y) => y * width),
     },
     {
       owner: p2.id,
-      nodes: mapGatesYCoordsToNodes(y => (y + 1) * width - 1),
+      nodes: mapGatesYCoordsToNodes((y) => (y + 1) * width - 1),
     },
   ];
 };
@@ -91,7 +94,7 @@ export const createFieldBoosters = (
 ): TBoosters => {
   return nodes.reduce<TBoosters>((boosters, node) => {
     const isBooster =
-      !gates.some(g => g.nodes.includes(node.id)) &&
+      !gates.some((g) => g.nodes.includes(node.id)) &&
       (isEdge(fieldSize)(node.coordinates) ||
         isMiddle(fieldSize)(node.coordinates));
     return { ...boosters, [node.id]: isBooster };

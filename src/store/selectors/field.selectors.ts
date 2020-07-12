@@ -22,7 +22,7 @@ import { gameStatusSelector } from './game.selectors';
 
 export const nodesSelector = ({ fieldState }: IState) => getNodes(fieldState);
 
-export const nodesListSelector = createSelector(nodesSelector, nodes =>
+export const nodesListSelector = createSelector(nodesSelector, (nodes) =>
   Object.values(nodes),
 );
 export const goalsSelector = (state: IState) => getGoals(state.fieldState);
@@ -35,8 +35,8 @@ export const ballPositionSelector = createSelector(
     return nodes[ballNodeId].coordinates;
   },
 );
-export const nodesByIdsSelector = createSelector(nodesSelector, nodes =>
-  memoize((nodesIds: string[]) => nodesIds.map(id => nodes[id])),
+export const nodesByIdsSelector = createSelector(nodesSelector, (nodes) =>
+  memoize((nodesIds: string[]) => nodesIds.map((id) => nodes[id])),
 );
 export const boostersSelector = (state: IState) =>
   getBoosters(state.fieldState);
@@ -69,7 +69,7 @@ export const possibleMovesSelector = createSelector(
       .filter(({ coordinates: { x, y } }) =>
         neighbors.some(({ x: nx, y: ny }) => x === nx && y === ny),
       )
-      .filter(node => !nodesConnected(node, ballNode, path));
+      .filter((node) => !nodesConnected(node, ballNode, path));
 
     const isSameEdge = ({ x, y }: IPoint) =>
       (isXEdge(fieldSize)(coordinates) && bx === x) ||

@@ -8,6 +8,7 @@ export interface IPlayer {
   id: string;
   color: string;
   name: string;
+  attackDirection: 'left' | 'right';
 }
 
 export interface IGame {

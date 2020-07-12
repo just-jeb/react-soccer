@@ -21,8 +21,8 @@ export const startNewGame: () => ReactSoccerThunkAction = () => (
   const fieldSize = gameSettingsSelector(getState()).fieldSize;
   const nodes = createNodes(fieldSize);
   const players: IPlayer[] = [
-    { id: '1', name: 'Sir Gay', color: 'pink' },
-    { id: '2', name: 'Jenia', color: 'yellow' },
+    { id: '1', name: 'Bob', color: '#4EB7F5', attackDirection: 'right' },
+    { id: '2', name: 'JeB', color: '#FFC50D', attackDirection: 'left' },
   ];
   const gates = createGoals(fieldSize, nodes, players);
   const defaultBoosters = createFieldBoosters(fieldSize, nodes, gates);
@@ -39,9 +39,9 @@ export const startNewGame: () => ReactSoccerThunkAction = () => (
   );
 };
 
-export const loadGame: (
-  id: string,
-) => ReactSoccerThunkAction = id => dispatch => {
+export const loadGame: (id: string) => ReactSoccerThunkAction = (id) => (
+  dispatch,
+) => {
   let gameState;
   const lastGameId = loadFromLocalStorage<string>(
     ELocalStorageKeys.LAST_GAME_ID,
@@ -77,7 +77,9 @@ export const saveGame: () => ReactSoccerThunkAction = () => (
   dispatch(MetaGameActions.saveGame(gameToSave));
 };
 
-export const fetchSavedGameHeaders: () => ReactSoccerThunkAction = () => dispatch => {
+export const fetchSavedGameHeaders: () => ReactSoccerThunkAction = () => (
+  dispatch,
+) => {
   const savedGames = loadFromLocalStorage<Dictionary<ISavedGame>>(
     ELocalStorageKeys.SAVES,
   );

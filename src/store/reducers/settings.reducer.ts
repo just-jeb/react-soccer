@@ -10,7 +10,7 @@ import {
 } from '../actions/meta-game.actions';
 
 const defaultGameSettings: IGameSettings = {
-  fieldSize: { width: 15, height: 7 },
+  fieldSize: { width: 11, height: 7 },
 };
 
 export const gameSettings: Reducer<

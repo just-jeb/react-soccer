@@ -8,7 +8,6 @@ interface IProps {
 
 export const GameComponent = ({ saveGame }: IProps) => (
   <>
-    <ScoreContainer />
     <FieldContainer />
     <button data-hook="save" onClick={saveGame}>
       Save

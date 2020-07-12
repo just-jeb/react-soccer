@@ -11,25 +11,32 @@ import {
 export const gameStatusSelector = ({ gameState }: IState) =>
   getGameStatus(gameState);
 export const gameIdSelector = ({ gameState }: IState) => getGameId(gameState);
-export const currentPlayerSelector = ({ gameState }: IState) =>
+export const currentPlayerIdSelector = ({ gameState }: IState) =>
   getCurrentPlayer(gameState);
 
 export const playersSelector = ({ gameState }: IState) => getPlayers(gameState);
 
 export const looserSelector = ({ gameState }: IState) => getLooser(gameState);
 
-export const currentPlayerColorSelector = createSelector(
-  currentPlayerSelector,
+export const currentPlayerSelector = createSelector(
+  currentPlayerIdSelector,
   playersSelector,
-  (currentPlayer, players) => {
-    const player = players.find(p => p.id === currentPlayer);
-    return (player && player.color) || 'black';
-  },
+  (id, players) => players.find((p) => p.id === id),
 );
 
-export const playerColorSelector = createSelector(playersSelector, players =>
+export const currentPlayerColorSelector = createSelector(
+  currentPlayerSelector,
+  (player) => player?.color || 'black',
+);
+
+export const currentPlayerDirectionSelector = createSelector(
+  currentPlayerSelector,
+  (player) => player?.attackDirection || 'left',
+);
+
+export const playerColorSelector = createSelector(playersSelector, (players) =>
   memoize((playerId: string) => {
-    const player = players.find(p => p.id === playerId);
+    const player = players.find((p) => p.id === playerId);
     return (player && player.color) || 'black';
   }),
 );

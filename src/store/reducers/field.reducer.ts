@@ -37,11 +37,9 @@ export const fieldState: Reducer<IField, FieldActions | MetaGameActions> = (
         nodes: reduceToDictionary(nodes, 'id'),
       };
     case EFieldActionsTypes.MOVE_BALL:
-      console.log('MOve ball reducers');
       const { nodeId } = action.payload;
       const { ballNode, path, boosters } = state;
       const connection: TConnection = [ballNode, nodeId];
-      console.log('Ball node inside reducer', nodeId);
       return {
         ...state,
         ballNode: nodeId,

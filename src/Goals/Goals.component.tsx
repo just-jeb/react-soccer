@@ -11,5 +11,6 @@ export class GoalsComponent extends PureComponent<IProps> {
 
   render(): React.ReactNode {
     return <>{this.props.goals.map(this.renderGoal)}</>;
+    //return this.renderGoal(this.props.goals[0]);
   }
 }
