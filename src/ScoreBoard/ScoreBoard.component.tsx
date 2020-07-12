@@ -1,6 +1,6 @@
 import React from 'react';
 import { IPlayer } from '../types/game.types';
-import { IPoint, IDimensions } from '../types';
+import { IPoint } from '../types';
 
 interface ScoreBoardProps {
   currentPlayer: string;

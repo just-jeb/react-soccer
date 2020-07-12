@@ -13,7 +13,6 @@ import ScoreContainer from '../ScoreBoard/ScoreBoard.container';
 
 export interface IFieldProps {
   fieldSize: IDimensions;
-  bordersColor: string;
 }
 
 export class FieldComponent extends React.PureComponent<IFieldProps> {
@@ -24,9 +23,7 @@ export class FieldComponent extends React.PureComponent<IFieldProps> {
   buildSvg() {
     const {
       fieldSize: { width, height },
-      bordersColor,
     } = this.props;
-    const middle = Math.floor(width / 2);
     //TODO: move SVG width and preserveAspectRatio to CSS
     return (
       <div className={styles.field}>
