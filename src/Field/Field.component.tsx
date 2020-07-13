@@ -39,7 +39,7 @@ export class FieldComponent extends React.PureComponent<IFieldProps> {
           <PathContainer />
           <FieldNodes />
           <GoalsContainer />
-          {<NextMovesGrid />}
+          <NextMovesGrid />
           <BallContainer />
           <ScoreContainer />
         </svg>
