@@ -35,6 +35,7 @@ const buildGoalPath = (goalNodes: INode[]) => {
 
 export const GoalComponent = React.memo<GateComponentProps>(
   ({ goalNodes, goalColor }) => {
+    //Consider using https://github.com/andreaferretti/paths-js
     return (
       <g>
         <path
