@@ -2,7 +2,6 @@ import React from 'react';
 import { IPlayer, IPoint } from '../types';
 
 export interface PlayerProps {
-  flip?: boolean;
   player: IPlayer;
   coordinates: IPoint;
 }

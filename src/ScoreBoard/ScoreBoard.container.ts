@@ -1,15 +1,17 @@
-import { IState } from '../store/state';
+import { connect } from 'react-redux';
 import {
-  currentPlayerIdSelector,
+  currentPlayerSelector,
   looserSelector,
   playersSelector,
 } from '../store/selectors/game.selectors';
-import { connect } from 'react-redux';
+import { gameSettingsSelector } from '../store/selectors/settings.selector';
+import { IState } from '../store/state';
 import { ScoreBoardComponent } from './ScoreBoard.component';
 
 const mapStateToProps = (state: IState) => ({
-  currentPlayer: currentPlayerIdSelector(state),
+  currentPlayer: currentPlayerSelector(state),
   players: playersSelector(state),
+  fieldSize: gameSettingsSelector(state).fieldSize,
   looser: looserSelector(state),
 });
 

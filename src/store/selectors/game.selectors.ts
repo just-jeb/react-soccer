@@ -21,17 +21,17 @@ export const looserSelector = ({ gameState }: IState) => getLooser(gameState);
 export const currentPlayerSelector = createSelector(
   currentPlayerIdSelector,
   playersSelector,
-  (id, players) => players.find((p) => p.id === id),
+  (id, players) => players.find((p) => p.id === id)!,
 );
 
 export const currentPlayerColorSelector = createSelector(
   currentPlayerSelector,
-  (player) => player?.color || 'black',
+  (player) => player.color,
 );
 
 export const currentPlayerDirectionSelector = createSelector(
   currentPlayerSelector,
-  (player) => player?.attackDirection || 'left',
+  (player) => player.attackDirection,
 );
 
 export const playerColorSelector = createSelector(playersSelector, (players) =>
