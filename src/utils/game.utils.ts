@@ -50,12 +50,14 @@ export const determineLooser = (
 };
 
 export const createNodes = ({ width, height }: IDimensions): INode[] => {
-  return Array(width * height)
+  const horizontalNodes = width + 1;
+  const verticalNodes = height + 1;
+  return Array(horizontalNodes * verticalNodes)
     .fill(null)
     .map((node, index) => {
       const coordinates = {
-        x: index % width,
-        y: Math.floor(index / width),
+        x: index % horizontalNodes,
+        y: Math.floor(index / horizontalNodes),
       };
       const id = stringifyPoint(coordinates);
       return {
@@ -70,7 +72,7 @@ export const createGoals = (
   nodes: INode[],
   [p1, p2]: IPlayer[],
 ): IGoal[] => {
-  const midY = Math.floor(height / 2);
+  const midY = height / 2;
   const gatesYCoord = [midY - 1, midY, midY + 1];
   const mapGatesYCoordsToNodes = (transformFunction: (y: number) => number) =>
     gatesYCoord.map(transformFunction).map((i) => nodes[i].id);
@@ -78,11 +80,11 @@ export const createGoals = (
   return [
     {
       owner: p1.id,
-      nodes: mapGatesYCoordsToNodes((y) => y * width),
+      nodes: mapGatesYCoordsToNodes((y) => y * (width + 1)),
     },
     {
       owner: p2.id,
-      nodes: mapGatesYCoordsToNodes((y) => (y + 1) * width - 1),
+      nodes: mapGatesYCoordsToNodes((y) => y * (width + 1) + width),
     },
   ];
 };

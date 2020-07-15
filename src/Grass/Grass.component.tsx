@@ -59,8 +59,8 @@ export class GrassComponent extends React.PureComponent<IGrassProps> {
           fill="#899C01"
           x={-CELL_SIZE}
           y={-CELL_SIZE}
-          width={(width + 1) * CELL_SIZE}
-          height={(height + 1) * CELL_SIZE}
+          width={(width + 2) * CELL_SIZE}
+          height={(height + 2) * CELL_SIZE}
         />
         {this.sections.map((section, i) => (
           <LightGrassSection {...section} key={i} />

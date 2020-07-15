@@ -29,8 +29,8 @@ export class FieldComponent extends React.PureComponent<IFieldProps> {
       <div className={styles.field}>
         <svg
           width={1200}
-          viewBox={`-100 -100 ${(width + 1) * CELL_SIZE} ${
-            (height + 1) * CELL_SIZE
+          viewBox={`-100 -100 ${(width + 2) * CELL_SIZE} ${
+            (height + 2) * CELL_SIZE
           }`}
           preserveAspectRatio={'xMidYMid meet'}
         >

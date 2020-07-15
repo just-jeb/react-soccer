@@ -5,19 +5,19 @@ export const isEdge = (d: IDimensions) => (p: IPoint): boolean => {
 };
 
 export const isXEdge = ({ width }: IDimensions) => ({ x }: IPoint): boolean => {
-  return x === 0 || x === width - 1;
+  return x === 0 || x === width;
 };
 
 export const isYEdge = ({ height }: IDimensions) => ({
   y,
 }: IPoint): boolean => {
-  return y === 0 || y === height - 1;
+  return y === 0 || y === height;
 };
 
 export const isMiddle = ({ width }: IDimensions) => ({
   x,
 }: IPoint): boolean => {
-  return x === Math.floor(width / 2);
+  return x === width / 2;
 };
 
 export const withinRange = ({ width, height }: IDimensions) => ({

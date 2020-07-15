@@ -26,8 +26,8 @@ export const ScoreBoardComponent = React.memo<ScoreBoardProps>(
     const isDirectionLeft = attackDirection === 'left';
     const arrowX = isDirectionLeft ? RIGHT_PLAYER_X : LEFT_PLAYER_X;
     const [scoreBoardX, scoreBoardY] = [
-      ((width - 1 - AVATARS_DISTANCE_IN_CELLS) * CELL_SIZE) / 2,
-      (height - 0.5) * CELL_SIZE,
+      ((width - AVATARS_DISTANCE_IN_CELLS) * CELL_SIZE) / 2,
+      (height + 0.5) * CELL_SIZE,
     ];
     return (
       <g id="Players" transform={`translate(${scoreBoardX}, ${scoreBoardY})`}>
