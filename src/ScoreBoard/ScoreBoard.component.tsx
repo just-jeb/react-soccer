@@ -31,9 +31,17 @@ export const ScoreBoardComponent = React.memo<ScoreBoardProps>(
     ];
     return (
       <g id="Players" transform={`translate(${scoreBoardX}, ${scoreBoardY})`}>
-        <Arrow flip={isDirectionLeft} color={color} x={arrowX} />
-        <Player player={players[0]} coordinates={{ x: LEFT_PLAYER_X, y: 0 }} />
-        <Player player={players[1]} coordinates={{ x: RIGHT_PLAYER_X, y: 0 }} />
+        {!looser && <Arrow flip={isDirectionLeft} color={color} x={arrowX} />}
+        <Player
+          looser={looser}
+          player={players[0]}
+          coordinates={{ x: LEFT_PLAYER_X, y: 0 }}
+        />
+        <Player
+          looser={looser}
+          player={players[1]}
+          coordinates={{ x: RIGHT_PLAYER_X, y: 0 }}
+        />
       </g>
     );
   },

@@ -1,10 +1,13 @@
 import { IPoint } from '../types/common.types';
-import React from 'react';
+import React, { useRef } from 'react';
 import { CELL_SIZE } from '../constants';
+import { EGameStatus } from '../types';
+import styles from './Ball.module.scss';
 
 interface BallComponentProps {
   ballPosition: IPoint;
   direction: 'left' | 'right';
+  gameStatus: EGameStatus;
 }
 
 const BALL_SIZE = 74.85;
@@ -13,24 +16,48 @@ const BALL_CENTER = BALL_SIZE / 2;
 //TODO: use svg asset instead of inline
 
 export const BallComponent = React.memo<BallComponentProps>(
-  ({ ballPosition: { x, y }, direction }) => {
+  ({ ballPosition: { x, y }, direction, gameStatus }) => {
     let [start, end] = direction === 'right' ? [0, 360] : [360, 0];
+    const endAnimation = useRef<SVGElement>(null);
+    endAnimation.current?.addEventListener('startEvent', () =>
+      console.log('HELLO'),
+    );
     return (
       <g
         transform={`translate(${x * CELL_SIZE - BALL_CENTER},${
           y * CELL_SIZE - BALL_CENTER
         })`}
       >
-        <g id="Ball">
-          <animateTransform
-            attributeName="transform"
-            attributeType={'XML'}
-            type={'rotate'}
-            from={`${start} ${BALL_CENTER} ${BALL_CENTER}`}
-            to={`${end} ${BALL_CENTER} ${BALL_CENTER}`}
-            dur={'10s'}
-            repeatCount={'indefinite'}
-          />
+        <g
+          id="Ball"
+          className={gameStatus === EGameStatus.End ? styles.move : ''}
+        >
+          {gameStatus !== EGameStatus.End && (
+            <animateTransform
+              d="xxx"
+              ref={endAnimation}
+              additive={'sum'}
+              attributeName="transform"
+              attributeType={'XML'}
+              type={'rotate'}
+              from={`${start} ${BALL_CENTER} ${BALL_CENTER}`}
+              to={`${end} ${BALL_CENTER} ${BALL_CENTER}`}
+              dur={'10s'}
+              repeatCount={'indefinite'}
+            />
+          )}
+          {
+            <>
+              {/* <animateTransform
+                attributeName="transform"
+                attributeType={'XML'}
+                additive={'sum'}
+                type={'translate'}
+                to={`${500} 500`}
+                dur={'1s'}
+              /> */}
+            </>
+          }
           <path
             d="M23.3429452,2.73868493 C18.7002123,4.6210137 14.5342671,7.38865753 10.9619795,10.959911 C7.38865753,14.5321986 4.62411644,18.6991781 2.74075342,23.3408767 C0.922547945,27.8253699 5.14413474e-14,32.5642877 5.14413474e-14,37.4252466 C5.14413474e-14,42.2851712 0.922547945,47.024089 2.74075342,51.5065137 C4.62411644,56.1492466 7.38969178,60.316226 10.9619795,63.8874795 C14.5342671,67.4608014 18.6991781,70.2263767 23.3429452,72.1087055 C27.8274384,73.9289795 32.5653219,74.8484247 37.4262808,74.8484247 C42.2872397,74.8484247 47.024089,73.9258767 51.5085822,72.1087055 C56.1502808,70.2263767 60.3182945,67.4608014 63.8895479,63.8874795 C67.4628699,60.316226 70.2284452,56.1513151 72.110774,51.5065137 C73.9289795,47.024089 74.8494589,42.2851712 74.8494589,37.4252466 C74.8494589,32.5642877 73.9279452,27.8253699 72.110774,23.3408767 C70.2284452,18.6991781 67.4608014,14.5311644 63.8895479,10.959911 C60.3182945,7.38865753 56.1544178,4.6210137 51.5085822,2.73868493 C47.024089,0.921513699 42.2872397,-5.87901113e-14 37.4262808,-5.87901113e-14 C32.5653219,-5.87901113e-14 27.8274384,0.921513699 23.3429452,2.73868493 Z"
             id="Path"
