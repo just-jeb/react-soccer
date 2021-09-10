@@ -28,7 +28,6 @@ export class FieldComponent extends React.PureComponent<IFieldProps> {
     return (
       <div className={styles.field}>
         <svg
-          width={1200}
           viewBox={`-100 -100 ${(width + 2) * CELL_SIZE} ${
             (height + 2) * CELL_SIZE
           }`}
